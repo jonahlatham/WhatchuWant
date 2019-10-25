@@ -19,30 +19,11 @@ massive(process.env.DATABASE_URL)
 
 //////////////////////////////////////////////////////////////////
 //displaying people
-app.get('/api/whatchuwant', (req, res, next) => {
-    const db = app.get('db')
-    db.people.find()
-        .then((people) => {
-            res.send(people)
-        })
-})
+
 //create new items
-app.post('/api/whatchuwant/wishlist', (req, res, next) => {
-    const db = app.get('db')
-    const { name, link, holiday, price } = req.body
-    db.wish_list.insert({ name, link, holiday, price })
-        .then((items) => {
-            res.send(items)
-        })
-})
+
 //displaying new items
-app.get('/api/whatchuwant/wishlist', (req, res, next) => {
-    const db = app.get('db')
-    db.wish_list.find()
-        .then((items) => {
-            res.send(items)
-        })
-})
+
 //////////////////////////////////////////////////////////////////
 
 const port = process.env.PORT || 8090
