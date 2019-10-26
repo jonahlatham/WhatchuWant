@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux';
+
 const baseUrl = 'http://localhost:8090/api/home'
-export default class Home extends Component {
+
+class Home extends Component {
     state = {
         tasks: [],
         task: ''
@@ -16,34 +19,37 @@ export default class Home extends Component {
     }
 
     handChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
+        this.props.dispatch({
+            type: 'TASKS',
+            payload: event.target.value,
         })
     }
 
     handleAddTask = () => {
-        debugger
         const body = {
-            task: this.state.task,
+            task: this.props.tasks,
         }
         axios.post(baseUrl, body)
             .then((response)=>{
-                this.setState({
-                    task: ''
+                this.props.dispatch({
+                    type: 'SUBMIT',
                 })
             })
+            window.location.reload()
     }
 
     render() {
         const allTasks = this.state.tasks.map((e) => {
-            return <div>{e.task} -- -- {e.id}</div>
+            return <div>{e.task} -- {e.id} -- {e.isCompleted}</div>
         })
         return (
             <div>
                 {allTasks}
-                <input name='task' value={this.state.task} onChange={this.handChange} type="text" />
+                <input name='task' value={this.props.task} onChange={this.handChange} type="text" />
                 <button onClick={this.handleAddTask}>Add</button>
             </div>
         )
     }
 }
+
+export default connect((storeObject) => { return storeObject })(Home)
