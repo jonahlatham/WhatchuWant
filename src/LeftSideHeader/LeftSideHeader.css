@@ -1,0 +1,31 @@
+.headerApp {
+    width: 50px;
+    min-height: 650px;
+    background: #2b518a;
+    transition-delay: 500ms;
+}
+
+.headerApp:hover {
+    transition-delay: 100ms;
+    width: 175px;
+}
+
+.headerLinksHidden {
+    opacity: 0;
+    width: 25px;
+    min-height: 650px;
+}
+
+.headerLinksHidden:hover {
+    opacity: 1;
+    min-height: 650px;
+    width: 175px;
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    text-decoration: none;
+    color: #9c6a1f;
+    margin-top: 10px;
+}

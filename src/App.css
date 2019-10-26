@@ -2,14 +2,6 @@
     text-align: center;
 }
 
-input:focus {
-    outline: none;
-}
-
-button:focus {
-    outline: none;
-}
-
-button:hover {
-    cursor: pointer;
+.flexFlex {
+    display: flex;
 }

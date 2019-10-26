@@ -18,6 +18,30 @@ massive(process.env.DATABASE_URL)
     })
 
 //////////////////////////////////////////////////////////////////
+const body = [
+    {
+        id: 1,
+        task: 'Do the dishes dammit!',
+        isCompleted: false
+    },
+]
+let id = 1
+
+app.get('/api/Home', (req, res, next) => {
+    res.send(body)
+})
+
+app.post('/api/Home', (req, res, next) => {
+    id++
+    const addedTask = {
+        id,
+        task: req.body.task,
+        isCompleted: false
+    }
+    body.push(addedTask)
+    res.send(body)
+})
+
 //displaying people
 
 //create new items
