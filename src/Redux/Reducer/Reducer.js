@@ -1,14 +1,36 @@
 import { combineReducers } from 'redux'
 
-const tasks = (state = '', action) => {
-    switch (action.type) {
-        case 'TASKS':
+// const tasks = (state = '', action) => {
+//     switch (action.type) {
+//         case 'TASKS':
+//             return action.payload
+//         case 'SUBMIT': 
+//             return ''
+//         default:
+//             return state
+//     }
+// }
+
+const newItem = (state = '', action) => {
+    switch(action.type){
+        case 'ITEMS':
             return action.payload
-        case 'SUBMIT': 
+        case 'SUBMIT':
             return ''
         default:
             return state
     }
 }
 
-export default combineReducers({ tasks })
+const holiday = (state = '', action) => {
+    switch(action.type){
+        case 'HOLIDAY':
+            return action.payload
+        case 'SUBMIT':
+            return ''
+        default:
+            return state
+    }
+}
+
+export default combineReducers({ newItem, holiday })

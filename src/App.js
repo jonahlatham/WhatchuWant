@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom"
 import LeftSideHeader from './LeftSideHeader/LeftSideHeader'
 import Home from './Pages/Home/Home'
 import CreateNewItem from './Pages/CreateNewItem/CreateNewItem'
-import Calendar from './Pages/Calendar/Calendar'
 
 let baseUrl = 'http://localhost:8090/api/whatchuwant'
 
@@ -18,7 +17,6 @@ class App extends Component {
             <LeftSideHeader />
             <Switch>
               <Route path="/CreateNewItem/" component={CreateNewItem} />
-              <Route path="/Calendar/" component={Calendar} />
               <Route path="/" exact component={Home} />
             </Switch>
           </div>
