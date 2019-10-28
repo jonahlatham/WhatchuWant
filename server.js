@@ -18,33 +18,21 @@ massive(process.env.DATABASE_URL)
     })
 
 //////////////////////////////////////////////////////////////////
-const body = [
-    {
-        id: 1,
-        task: 'Do the dishes dammit!',
-        isCompleted: false
-    },
-]
-let id = 1
 
-app.get('/api/Home', (req, res, next) => {
-    res.send(body)
-})
+//add new items
 
-app.post('/api/Home', (req, res, next) => {
-    id++
-    const addedTask = {
-        id,
-        task: req.body.task,
-        isCompleted: false
-    }
-    body.push(addedTask)
-    res.send(body)
+app.get('/api/holidays', (req, res, next) => {
+    const db = app.get('db')
+    db.holidays.find()
+        .then((holidays) => {
+            res.send({ holidays: holidays })
+        })
+        .catch((err) => {
+            res.send({ success: false, err })
+        })
 })
 
 //displaying people
-
-//create new items
 
 //displaying new items
 
@@ -55,4 +43,4 @@ app.listen(port, () => {
     console.log(`Listening on port ${port}`)
 })
 
-// http://localhost:8090/api/whatchuwant
+// http://localhost:8090

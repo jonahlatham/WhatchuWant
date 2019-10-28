@@ -1,8 +1,23 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import './CreateNewItem.css'
+import axios from 'axios'
 
 class CreateNewItem extends Component {
+
+    state = {
+        holidays: []
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:8090/api/holidays')
+            .then((response) => {
+                this.setState({
+                    holidays: response.data.holidays
+                })
+                console.log(response.data.holidays)
+            })
+    }
 
     handleNewItem = (event) => {
         this.props.dispatch({
@@ -24,13 +39,15 @@ class CreateNewItem extends Component {
         alert('Nothing happened')
     }
     render() {
-
+        const loopedHolidays = this.state.holidays.map((e) => {
+            return <option key={e.id} value={e.name}>{e.name}</option>
+        })
         return (
             <div className='createNewApp'>
                 <input placeholder='Item' onChange={this.handleNewItem} type="text" value={this.props.newItem} />
                 <select onChange={this.handleHoliday}>
                     <option value="">Select</option>
-                    
+                    {loopedHolidays}
                 </select>
                 <button onClick={this.CreateNewItemSubmit}>Submit</button>
             </div>
@@ -39,10 +56,3 @@ class CreateNewItem extends Component {
 }
 
 export default connect((storeObject) => { return storeObject })(CreateNewItem)
-
-
-// CREATE TABLE holidays (
-//     id PRIMARY KEY,
-//     holiday varchar,
-//     date_added Datetime,
-// );
