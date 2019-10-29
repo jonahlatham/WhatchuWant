@@ -18,7 +18,7 @@ create table items (
     id serial primary key,
     name varchar,
     holiday_id int,
-    is_private boolean,
+    img varchar,
     creator_id int,
     date_created TIMESTAMP,
     date_updated TIMESTAMP,
