@@ -6,12 +6,13 @@ export default class Header extends Component {
     render() {
         return (
             <div className='headerApp'>
-                {/* <div className='headerLinksHidden'>
+                <div className='headerLinksHidden'>
                     <Link className='link' to='/Home'>Home</Link>
-                    <Link className='link' to='/createquiz'>Create New</Link>
-                    <Link className='link' to='/discoverquiz'>Discover</Link>
-                    <Link className='link' to='/quiz/reviewsubmissions/:id'>Review</Link>
-                </div> */}
+                    <br />
+                    <Link className='link' to='/CreateNewItem/'>Create New</Link>
+                    <br/>
+                    <Link className='link' to='/DisplayedItems/'>Displayed Items</Link>
+                </div>
             </div>
         )
     }

@@ -1,22 +1,24 @@
 .headerApp {
-    width: 50px;
+    width: 75px;
     min-height: 650px;
     background: #2b518a;
     transition-delay: 500ms;
 }
 
 .headerApp:hover {
-    transition-delay: 100ms;
+    transition-delay: 200ms;
     width: 175px;
 }
 
 .headerLinksHidden {
+    transition-delay: 200ms;
     opacity: 0;
-    width: 25px;
+    width: 100px;
     min-height: 650px;
 }
 
 .headerLinksHidden:hover {
+    transition-delay: 200ms;
     opacity: 1;
     min-height: 650px;
     width: 175px;
@@ -25,7 +27,13 @@
 }
 
 .link {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
     text-decoration: none;
-    color: #9c6a1f;
-    margin-top: 10px;
+    color: black;
+    font-size: 15px;
+    min-height: 25px;
+    width: 150px;
+    background: radial-gradient(#ffffff8f 5%, #2b518a8a 75%, #2b518a 20%)
 }

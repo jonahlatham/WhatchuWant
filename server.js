@@ -45,6 +45,17 @@ app.get('/api/holidays', (req, res, next) => {
 
 //displaying new items
 
+app.get('/api/displayItems', (req, res, next) => {
+    const db = app.get('db')
+    db.items.find()
+        .then((items) => {
+            res.send({ items: items })
+        })
+        .catch((err) => {
+            res.send({ success: false, err })
+        })
+})
+
 //////////////////////////////////////////////////////////////////
 
 const port = process.env.PORT || 8090
