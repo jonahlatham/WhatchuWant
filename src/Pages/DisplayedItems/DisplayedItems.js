@@ -10,7 +10,6 @@ class DisplayedItems extends Component {
     }
 
     componentDidMount() {
-        debugger
         axios.get('/api/displayItems')
         .then((response) => {
                 this.setState({
