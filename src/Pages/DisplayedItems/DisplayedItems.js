@@ -15,16 +15,16 @@ class DisplayedItems extends Component {
                 this.setState({
                     items: response.data
                 })
-                console.log(this.state.items)
+                console.log(response.data)
             })
     }
     render() {
-        const items = this.state.items.map((e)=>{
-            return e
+        const newItems = this.state.items.map((e)=>{
+            return <div>{e.name}</div>
         })
         return (
             <div>
-                {items}
+                {newItems}
             </div>
         )
     }
