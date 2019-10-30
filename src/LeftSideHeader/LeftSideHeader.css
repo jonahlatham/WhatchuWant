@@ -37,3 +37,7 @@
     width: 150px;
     background: radial-gradient(#ffffff8f 5%, #2b518a8a 75%, #2b518a 20%)
 }
+
+.link:hover {
+    background: radial-gradient(#ffffff8f 25%, #2b518a8a 55%, #2b518a 20%)
+}
