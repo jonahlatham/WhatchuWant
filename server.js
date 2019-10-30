@@ -21,12 +21,15 @@ massive(process.env.DATABASE_URL)
 
 //add new items
 
-app.post('/api/createNew', (req, res, nest) => {
-    const db = app.get('db')
-    const date = new Date()
-    const { name, holiday_id, img } = req.body
-    db.items.insert({ name, holiday_id, img, creator_id: req.session.user.id, date_created: date, date_updated: date, })
-})
+// app.post('/api/createNew', (req, res, nest) => {
+//     const db = app.get('db')
+//     const date = new Date()
+//     const { name, holiday_id, img } = req.body
+//     db.items.insert({ name, holiday_id, img, creator_id: req.session.user.id, date_created: date, date_updated: date })
+//         .catch((err) => {
+//             res.send({ success: false, err })
+//         })
+// })
 
 //holidays
 

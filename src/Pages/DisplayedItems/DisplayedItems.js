@@ -6,24 +6,37 @@ import { connect } from 'react-redux';
 class DisplayedItems extends Component {
 
     state = {
-        items: []
+        items: [],
+        holidays: []
     }
 
     componentDidMount() {
         axios.get('/api/displayItems')
-        .then((response) => {
+            .then((response) => {
                 this.setState({
-                    items: response.data
+                    items: response.data.items
                 })
-                console.log(response.data)
+                console.log(this.state.items)
+            })
+        axios.get('/api/holidays')
+            .then((response) => {
+                this.setState({
+                    holidays: response.data.holidays
+                })
             })
     }
     render() {
-        const newItems = this.state.items.map((e)=>{
-            return <div>{e.name}</div>
+        const newItems = this.state.items.map((e) => {
+            return <div key={e.id} className='newItems'>
+                {e.name}
+                <div>
+                    <img className='newItemsImg' src={e.img} alt="img" />
+                </div>
+                {this.state.holidays[e.holiday_id - 1].name}
+            </div>
         })
         return (
-            <div>
+            <div className='displayedItemsApp'>
                 {newItems}
             </div>
         )

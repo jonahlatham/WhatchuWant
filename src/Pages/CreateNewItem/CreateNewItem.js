@@ -34,7 +34,7 @@ class CreateNewItem extends Component {
     CreateNewItemSubmit = (event) => {
         this.props.dispatch({
             type: 'SUBMIT',
-            // payload: event.target.value
+            payload: event.target.value
         })
         alert('Nothing happened')
     }
