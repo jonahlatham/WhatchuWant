@@ -39,15 +39,15 @@ class CreateNewItem extends Component {
         alert('Nothing happened')
     }
     render() {
-        const loopedHolidays = this.state.holidays.map((e) => {
-            return <option key={e.id} value={e.name}>{e.name}</option>
-        })
+        // const loopedHolidays = this.state.holidays.map((e) => {
+        //     return <option key={e.id} value={e.name}>{e.name}</option>
+        // })
         return (
             <div className='createNewApp'>
                 <input placeholder='Item' onChange={this.handleNewItem} type="text" value={this.props.newItem} />
                 <select onChange={this.handleHoliday}>
                     <option value="">Select</option>
-                    {loopedHolidays}
+                    {/* {loopedHolidays} */}
                 </select>
                 <button onClick={this.CreateNewItemSubmit}>Submit</button>
             </div>
