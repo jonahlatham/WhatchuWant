@@ -11,6 +11,17 @@ import { combineReducers } from 'redux'
 //     }
 // }
 
+const user = (state = null, action) => {
+    switch (action.type) {
+        case 'SET_USER':
+            return action.payload
+        case 'LOGOUT':
+            return null
+        default:
+            return state;
+    }
+}
+
 const newItem = (state = '', action) => {
     switch(action.type){
         case 'ITEMS':
@@ -33,4 +44,4 @@ const holiday = (state = '', action) => {
     }
 }
 
-export default combineReducers({ newItem, holiday })
+export default combineReducers({ user, newItem, holiday })

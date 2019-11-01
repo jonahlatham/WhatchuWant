@@ -8,9 +8,9 @@ import CreateNewItem from './Pages/CreateNewItem/CreateNewItem'
 import DisplayedItems from './Pages/DisplayedItems/DisplayedItems'
 import Login from './LogReg/Login/Login'
 import Register from './LogReg/Register/Register'
+import Head from './Head/Head'
 import { connect } from 'react-redux';
 
-let baseUrl = 'http://localhost:8090/api/whatchuwant'
 
 class App extends Component {
   componentDidMount() {
@@ -25,22 +25,27 @@ class App extends Component {
     let authRoutes = ''
     if (this.props.user) {
       authRoutes = [
-        <Route path="/CreateNewItem" component={CreateNewItem} />,
-        <Route path="/DisplayedItems" component={DisplayedItems} />,
-        <Route path="/Home" exact component={Home} />,
+        <Route key={1} path="/createNewItem" component={CreateNewItem} />,
+        <Route key={2} path="/displayedItems" component={DisplayedItems} />,
+        <Route key={3} path="/home" exact component={Home} />,
       ]
     }
     return (
       <div className='App' >
         <Router>
-          <div className='flexFlex'>
-            <LeftSideHeader />
+          <div className='sideBySide'>
+            <div className='flexFlex'>
+              <LeftSideHeader />
+            </div>
+            <Switch>
+              <div style={{margin: 'auto'}}>
+                <Head />
+                {authRoutes}
+                <Route path="/register" component={Register} />
+                <Route path="/" component={Login} />
+              </div>
+            </Switch>
           </div>
-          <Switch>
-            {authRoutes}
-            <Route path="/register" component={Register} />
-            <Route path="/" component={Login} />
-          </Switch>
         </Router>
       </div>
     )

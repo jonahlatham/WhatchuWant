@@ -1,0 +1,8 @@
+.loginInputDiv {
+    margin: auto;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginInput {}
