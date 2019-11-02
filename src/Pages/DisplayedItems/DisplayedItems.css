@@ -17,3 +17,18 @@
 .displayedItemsApp {
     padding: 10px;
 }
+
+.displayedItems {
+    padding: 10px;
+    width: 120px;
+    height: 150px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 25px;
+}
+
+.displayedItemsImg {
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+}

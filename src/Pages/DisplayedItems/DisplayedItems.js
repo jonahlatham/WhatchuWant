@@ -24,25 +24,24 @@ class DisplayedItems extends Component {
                 this.setState({
                     holidays: response.data.holidays
                 })
+                console.log(this.state.holidays);
+
             })
     }
     render() {
-        // const newItems = this.state.items.map((e) => {
-        //     if(this.state.items){
-        //         return <div key={e.id} className='newItems'>
-        //         {e.name}
-        //         <div>
-        //             <img className='newItemsImg' src={e.img} alt="img" />
-        //         </div>
-        //         {this.state.holidays[e.holiday_id - 1].name}
-        //     </div>
-        //     } else {
-        //         return 'Loading...'
-        //     }
-        // })
+        const holidays = this.state.holidays.map((e) => {
+            return e.name
+        })
+        const displayedItems = this.state.items.map((e) => {
+            return <div className='displayedItems' key={e.id}>
+                {e.name}
+                <div><img className='displayedItemsImg' src={e.img} alt="img" /></div>
+                {holidays[e.holiday_id]}
+            </div>
+        })
         return (
             <div className='displayedItemsApp'>
-                {/* {newItems} */}
+                {displayedItems}
             </div>
         )
     }
