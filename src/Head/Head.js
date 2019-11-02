@@ -22,7 +22,7 @@ class Head extends Component {
     render() {
         return (
             <div className='headApp'>
-                {this.props.user ? <button className='logoutButton' onClick={this.handleLogout}>Logout</button> : <Link className='' to='/'>Login</Link>}
+                {this.props.user ? <button className='logoutButton' onClick={this.handleLogout}>Logout</button> : <Link className='loginLink' to='/'>Login</Link>}
             </div>
         )
     }

@@ -40,7 +40,7 @@ class Login extends Component {
                 <input onChange={this.handleChange} name='email' value={this.state.email} className='loginInput' placeholder='Login' type="text" />
                 <input onChange={this.handleChange} name='password' value={this.state.password} className='loginInput' placeholder='password' type="text" />
                 <button onClick={this.handleLogin} className='loginButton'>Log In</button>
-                <Link className='' to='/Register'>Register</Link>
+                <Link className='loginLink' to='/Register'>Register</Link>
             </div>
         )
     }

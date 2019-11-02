@@ -5,4 +5,7 @@
     flex-direction: column;
 }
 
-.loginInput {}
+.loginLink {
+    text-decoration: none;
+    font-size: 10px;
+}
