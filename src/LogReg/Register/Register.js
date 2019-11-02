@@ -51,6 +51,7 @@ export default class Register extends Component {
                 <input name='firstName' value={this.state.firstName} onChange={this.handleChange} placeholder='PASSWORD' type="text" />
                 <input name='firstName' value={this.state.firstName} onChange={this.handleChange} placeholder='DATE OF BIRTH' type="text" />
                 <button onClick={this.handleRegister} className='registerButton'>Register</button>
+                <Link className='' to='/'>Login</Link>
             </div>
         )
     }

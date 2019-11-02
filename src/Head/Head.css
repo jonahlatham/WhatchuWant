@@ -1,7 +1,18 @@
 .headApp {
-    width: 100%;
+    padding-right: 15px;
 }
 
-.headRight {
-    text-align: right;
+.logoutButton {
+    cursor: pointer;
+    border: none;
+}
+
+.logoutButton:hover {
+    /* transform: rotate3d(0, 1, .5, 3.14rad); */
+    /* font-size: 15px; */
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
 }

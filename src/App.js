@@ -34,17 +34,17 @@ class App extends Component {
       <div className='App' >
         <Router>
           <div className='sideBySide'>
+            <LeftSideHeader />
             <div className='flexFlex'>
-              <LeftSideHeader />
-            </div>
-            <Switch>
-              <div style={{margin: 'auto'}}>
+              <div className='head'>
                 <Head />
+              </div>
+              <Switch>
                 {authRoutes}
                 <Route path="/register" component={Register} />
                 <Route path="/" component={Login} />
-              </div>
-            </Switch>
+              </Switch>
+            </div>
           </div>
         </Router>
       </div>
