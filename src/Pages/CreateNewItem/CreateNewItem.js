@@ -10,12 +10,11 @@ class CreateNewItem extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:8090/api/holidays')
+        axios.get('/api/holidays')
             .then((response) => {
                 this.setState({
                     holidays: response.data.holidays
                 })
-                console.log(response.data.holidays)
             })
     }
 
@@ -25,29 +24,49 @@ class CreateNewItem extends Component {
             payload: event.target.value,
         })
     }
+
+    handleImage = (event) => {
+        this.props.dispatch({
+            type: 'IMAGE',
+            payload: event.target.value,
+        })
+    }
+
     handleHoliday = (event) => {
         this.props.dispatch({
             type: 'HOLIDAY',
             payload: event.target.value
         })
     }
+
     CreateNewItemSubmit = (event) => {
-        this.props.dispatch({
-            type: 'SUBMIT',
-            payload: event.target.value
-        })
-        alert('Nothing happened')
+        const body = {
+            name: this.props.newItem,
+            holiday_id: this.props.holiday,
+            img: this.props.itemImage
+        }
+        axios.post('/api/createNew', body)
+            .then((response) => {
+                if (response.data.success) {
+                    this.props.dispatch({ type: 'SUBMIT' })
+                    this.props.history.push('/home')
+                } else {
+                    alert(response.data.err)
+                }
+            })
     }
     render() {
-        // const loopedHolidays = this.state.holidays.map((e) => {
-        //     return <option key={e.id} value={e.name}>{e.name}</option>
-        // })
+        console.log(this.props.item)
+        const loopedHolidays = this.state.holidays.map((e) => {
+            return <option key={e.id} value={e.id}>{e.name}</option>
+        })
         return (
             <div className='createNewApp'>
                 <input placeholder='Item' onChange={this.handleNewItem} type="text" value={this.props.newItem} />
+                <input placeholder='Image URL' onChange={this.handleImage} type="text" value={this.props.itemImage} />
                 <select onChange={this.handleHoliday}>
                     <option value="">Select</option>
-                    {/* {loopedHolidays} */}
+                    {loopedHolidays}
                 </select>
                 <button onClick={this.CreateNewItemSubmit}>Submit</button>
             </div>

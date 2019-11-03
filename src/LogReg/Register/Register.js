@@ -4,12 +4,13 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { Link } from "react-router-dom"
 
-export default class Register extends Component {
+class Register extends Component {
     state = {
         first_name: '',
         last_name: '',
         email: '',
         password: '',
+        dob: ''
     }
 
     handleChange = (event) => {
@@ -38,6 +39,7 @@ export default class Register extends Component {
                     last_name: '',
                     email: '',
                     password: '',
+                    dob: ''
                 })
             })
     }
@@ -45,14 +47,16 @@ export default class Register extends Component {
     render() {
         return (
             <div className='registerApp'>
-                <input name='firstName' value={this.state.firstName} onChange={this.handleChange} placeholder='FIRST NAME' type="text" />
-                <input name='firstName' value={this.state.firstName} onChange={this.handleChange} placeholder='LAST NAME' type="text" />
-                <input name='firstName' value={this.state.firstName} onChange={this.handleChange} placeholder='EMAIL' type="text" />
-                <input name='firstName' value={this.state.firstName} onChange={this.handleChange} placeholder='PASSWORD' type="text" />
-                <input name='firstName' value={this.state.firstName} onChange={this.handleChange} placeholder='DATE OF BIRTH' type="text" />
+                <input name='first_name' value={this.state.first_name} onChange={this.handleChange} placeholder='FIRST NAME' type="text" />
+                <input name='last_name' value={this.state.last_name} onChange={this.handleChange} placeholder='LAST NAME' type="text" />
+                <input name='email' value={this.state.email} onChange={this.handleChange} placeholder='EMAIL' type="text" />
+                <input name='password' value={this.state.password} onChange={this.handleChange} placeholder='PASSWORD' type="text" />
+                {/* <input name='dob' value={this.state.dob} onChange={this.handleChange} placeholder='DATE OF BIRTH' type="text" /> */}
                 <button onClick={this.handleRegister} className='registerButton'>Register</button>
                 <Link className='loginLink' to='/'>Login</Link>
             </div>
         )
     }
 }
+
+export default connect((storeObject) => { return storeObject })(Register)

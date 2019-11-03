@@ -33,6 +33,17 @@ const newItem = (state = '', action) => {
     }
 }
 
+const itemImage = (state = '', action) => {
+    switch(action.type){
+        case 'IMAGE':
+            return action.payload
+        case 'SUBMIT':
+            return ''
+        default:
+            return state
+    }
+}
+
 const holiday = (state = '', action) => {
     switch(action.type){
         case 'HOLIDAY':
@@ -44,4 +55,4 @@ const holiday = (state = '', action) => {
     }
 }
 
-export default combineReducers({ user, newItem, holiday })
+export default combineReducers({ user, newItem, holiday, itemImage })

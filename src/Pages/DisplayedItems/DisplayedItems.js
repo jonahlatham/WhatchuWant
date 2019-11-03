@@ -33,11 +33,15 @@ class DisplayedItems extends Component {
             return e.name
         })
         const displayedItems = this.state.items.map((e) => {
-            return <div className='displayedItems' key={e.id}>
-                {e.name}
-                <div><img className='displayedItemsImg' src={e.img} alt="img" /></div>
-                {holidays[e.holiday_id]}
-            </div>
+            if (e.creator_id === this.props.user.id) {
+                return <div className='displayedItems' key={e.id}>
+                    {e.name}
+                    <div><img className='displayedItemsImg' src={e.img} alt="img" /></div>
+                    {holidays[e.holiday_id]}
+                </div>
+            } else {
+                return ''
+            }
         })
         return (
             <div className='displayedItemsApp'>

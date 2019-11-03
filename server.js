@@ -117,7 +117,7 @@ app.post('/api/createNew', (req, res, nest) => {
     const { name, holiday_id, img } = req.body
     db.items.insert({ name, holiday_id, img, creator_id: req.session.user.id, date_created: date, date_updated: date })
         .then((item) => {
-            res.send(item)
+            res.send({success: true, item})
         })
         .catch((err) => {
             res.send({ success: false, err })
