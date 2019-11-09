@@ -9,3 +9,17 @@
     text-decoration: none;
     font-size: 10px;
 }
+
+.loginInput {
+    margin-bottom: 10px;
+    height: 15px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+}
+
+.loginInput:focus {
+    outline: none;
+    border-color: black;
+    border-width: 2px;
+}
