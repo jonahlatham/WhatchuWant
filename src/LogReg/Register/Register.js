@@ -47,11 +47,13 @@ class Register extends Component {
     render() {
         return (
             <div className='registerApp'>
-                <input name='first_name' value={this.state.first_name} onChange={this.handleChange} placeholder='FIRST NAME' type="text" />
-                <input name='last_name' value={this.state.last_name} onChange={this.handleChange} placeholder='LAST NAME' type="text" />
-                <input name='email' value={this.state.email} onChange={this.handleChange} placeholder='EMAIL' type="text" />
-                <input name='password' value={this.state.password} onChange={this.handleChange} placeholder='PASSWORD' type="text" />
-                {/* <input name='dob' value={this.state.dob} onChange={this.handleChange} placeholder='DATE OF BIRTH' type="text" /> */}
+                <input style={{ boxShadow: /^[a-zA-Z]/.test(this.state.first_name) ? '0 0 3pt 2pt green' : '0 0 3pt 2pt red' }} className='registerInputs' name='first_name' value={this.state.first_name} onChange={this.handleChange} placeholder='FIRST NAME' type="text" />
+                <input style={{ boxShadow: /^[a-zA-Z]/.test(this.state.last_name) ? '0 0 3pt 2pt green' : '0 0 3pt 2pt red' }} className='registerInputs' name='last_name' value={this.state.last_name} onChange={this.handleChange} placeholder='LAST NAME' type="text" />
+                <input style={{ boxShadow: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email) ? '0 0 3pt 2pt green' : '0 0 3pt 2pt red' }} className='registerInputs' name='email' value={this.state.email} onChange={this.handleChange} placeholder='EMAIL' type="text" />
+                <input style={{ boxShadow: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/.test(this.state.password) ? '0 0 3pt 2pt green' : '0 0 3pt 2pt red' }} className='registerInputs' name='password' value={this.state.password} onChange={this.handleChange} placeholder='PASSWORD' type="text" />
+                <small>
+                    Password must have 7-15 characters with at least one numeric digit and a special character
+                </small>
                 <button onClick={this.handleRegister} className='registerButton'>Register</button>
                 <Link className='loginLink' to='/'>Login</Link>
             </div>

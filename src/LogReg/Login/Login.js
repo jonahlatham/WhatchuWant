@@ -33,8 +33,6 @@ class Login extends Component {
     }
 
     render() {
-        console.log(this.state.email)
-        console.log(this.state.password)
         return (
             <div className='loginInputDiv'>
                 <input onChange={this.handleChange} name='email' value={this.state.email} className='loginInput' placeholder='Login' type="text" />
