@@ -37,7 +37,7 @@ class DisplayedItems extends Component {
                 return <div className='displayedItems' key={e.id}>
                     {e.name}
                     <div><img className='displayedItemsImg' src={e.img} alt="img" /></div>
-                    {holidays[e.holiday_id]}
+                    {holidays[e.holiday_id-1]}
                 </div>
             } else {
                 return ''
