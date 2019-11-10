@@ -26,28 +26,28 @@ class Register extends Component {
             email: this.state.email,
             password: this.state.password,
         }
-        axios.post('/auth/register', body)
-            .then((response) => {
-                if (
-                    response.data.success
-                    && /^[a-zA-Z]+$/.test(this.state.first_name)
-                    && /^[a-zA-Z]+$/.test(this.state.last_name)
-                    && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email)
-                    && /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/.test(this.state.password)
-                ) {
-                    this.props.dispatch({ type: 'SET_USER', payload: response.data.user })
-                    this.props.history.push('/home')
-                } else {
-                    alert(response.data.err)
-                }
-                this.setState({
-                    first_name: '',
-                    last_name: '',
-                    email: '',
-                    password: '',
-                    dob: ''
+        if (/^[a-zA-Z]+$/.test(this.state.first_name) && /^[a-zA-Z]+$/.test(this.state.last_name) && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email) && /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/.test(this.state.password)) {
+            axios.post('/auth/register', body)
+                .then((response) => {
+                    if (
+                        response.data.success
+                    ) {
+                        this.props.dispatch({ type: 'SET_USER', payload: response.data.user })
+                        this.props.history.push('/home')
+                    } else {
+                        alert(response.data.err)
+                    }
+                    this.setState({
+                        first_name: '',
+                        last_name: '',
+                        email: '',
+                        password: '',
+                        dob: ''
+                    })
                 })
-            })
+        } else {
+            alert('You just got flipped the bird')
+        }
     }
 
     render() {
