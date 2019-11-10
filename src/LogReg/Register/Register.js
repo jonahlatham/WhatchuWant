@@ -26,12 +26,9 @@ class Register extends Component {
             email: this.state.email,
             password: this.state.password,
         }
-        if (/^[a-zA-Z]+$/.test(this.state.first_name) && /^[a-zA-Z]+$/.test(this.state.last_name) && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email) && /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/.test(this.state.password)) {
             axios.post('/auth/register', body)
                 .then((response) => {
-                    if (
-                        response.data.success
-                    ) {
+                    if (response.data.success) {
                         this.props.dispatch({ type: 'SET_USER', payload: response.data.user })
                         this.props.history.push('/home')
                     } else {
@@ -45,9 +42,6 @@ class Register extends Component {
                         dob: ''
                     })
                 })
-        } else {
-            alert('You just got flipped the bird')
-        }
     }
 
     render() {
@@ -56,7 +50,7 @@ class Register extends Component {
                 <input style={{ boxShadow: /^[a-zA-Z]+$/.test(this.state.first_name) ? '0 0 3pt 2pt green' : '0 0 3pt 2pt red' }} className='registerInputs' name='first_name' value={this.state.first_name} onChange={this.handleChange} placeholder='FIRST NAME' type="text" />
                 <input style={{ boxShadow: /^[a-zA-Z]+$/.test(this.state.last_name) ? '0 0 3pt 2pt green' : '0 0 3pt 2pt red' }} className='registerInputs' name='last_name' value={this.state.last_name} onChange={this.handleChange} placeholder='LAST NAME' type="text" />
                 <input style={{ boxShadow: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email) ? '0 0 3pt 2pt green' : '0 0 3pt 2pt red' }} className='registerInputs' name='email' value={this.state.email} onChange={this.handleChange} placeholder='EMAIL' type="text" />
-                <input style={{ boxShadow: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/.test(this.state.password) ? '0 0 3pt 2pt green' : '0 0 3pt 2pt red' }} className='registerInputs' name='password' value={this.state.password} onChange={this.handleChange} placeholder='PASSWORD' type="text" />
+                <input style={{ boxShadow: /^(?=.*[0-9])(?=.*[!@#$%^&*_+-=:;'()])[a-zA-Z0-9!@#$%^&*_+-=:;'()]{7,15}$/.test(this.state.password) ? '0 0 3pt 2pt green' : '0 0 3pt 2pt red' }} className='registerInputs' name='password' value={this.state.password} onChange={this.handleChange} placeholder='PASSWORD' type="text" />
                 <small>
                     Password must have 7-15 characters with at least one numeric digit and a special character
                 </small>

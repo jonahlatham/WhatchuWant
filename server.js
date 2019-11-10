@@ -88,8 +88,14 @@ app.post('/auth/register', (req, res, next) => {
     const { email, password, first_name, last_name, dob } = req.body
     db.people.findOne({ email })
         .then((user) => {
+            const condition1 = /^[a-zA-Z]+$/.test(first_name)
+            const condition2 = /^[a-zA-Z]+$/.test(last_name)
+            const condition3 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+            const condition4 = /^(?=.*[0-9])(?=.*[!@#$%^&*_+-=:;()'])[a-zA-Z0-9!@#$%^&*_+-=:;()']{7,15}$/.test(password)
             if (user) {
                 throw 'This email is already in use, please login.'
+            } else if (!condition1 || !condition2 || !condition3 || !condition4) {
+                throw 'You just got flipped the bird.'
             } else {
                 return bcrypt.hash(password, 10)
             }
@@ -117,7 +123,7 @@ app.post('/api/createNew', (req, res, nest) => {
     const { name, holiday_id, img } = req.body
     db.items.insert({ name, holiday_id, img, creator_id: req.session.user.id, date_created: date, date_updated: date })
         .then((item) => {
-            res.send({success: true, item})
+            res.send({ success: true, item })
         })
         .catch((err) => {
             res.send({ success: false, err })
