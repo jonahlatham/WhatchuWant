@@ -35,8 +35,10 @@ class Login extends Component {
     render() {
         return (
             <div className='loginInputDiv'>
-                <input onChange={this.handleChange} name='email' value={this.state.email} className='loginInput' placeholder='Login' type="text" />
-                <input onChange={this.handleChange} name='password' value={this.state.password} className='loginInput' placeholder='password' type="text" />
+                <p className='loginPTag'>E-Mail</p>
+                <input onChange={this.handleChange} name='email' value={this.state.email} className='loginInput' type="text" />
+                <p className='loginPTag'>Password</p>
+                <input onChange={this.handleChange} name='password' value={this.state.password} className='loginInput' type="password" />
                 <button onClick={this.handleLogin} className='loginButton'>Log In</button>
                 <Link className='loginLink' to='/Register'>Register</Link>
             </div>

@@ -1,20 +1,40 @@
 .registerApp {
-    margin: auto;
-    width: 30%;
+    margin-left: 15px;
+    text-align: left;
     display: flex;
     flex-direction: column;
 }
 
 .registerInputs {
     margin-bottom: 10px;
-    height: 15px;
+    width: 60%;
+    height: 35px;
     border-style: solid;
     border-width: 1px;
     border-color: gray;
+    border-radius: 5px;
+    font-size: 15px;
+    padding-left: 5px;
 }
 
 .registerInputs:focus {
     outline: none;
-    border-color: black;
-    border-width: 2px;
+    background: #dbeef3;
+}
+
+.registerButton {
+    width: 25%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.passText {
+    margin-bottom: 17px;
+    margin-top: -15px;
+    font-size: 10px;
+}
+
+.registerRegi {
+    font-size: 30px;
+    margin: auto;
 }
