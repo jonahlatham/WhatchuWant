@@ -33,18 +33,15 @@ class App extends Component {
     return (
       <div className='App' >
         <Router>
-          <div className='sideBySide'>
+          <div>
             <LeftSideHeader />
             <div className='flexFlex'>
-              <div className='head'>
-                <Head />
-              </div>
-              <Switch>
-                {authRoutes}
-                <Route path="/register" component={Register} />
-                <Route path="/" component={Login} />
-              </Switch>
             </div>
+            <Switch>
+              {authRoutes}
+              <Route path="/register" component={Register} />
+              <Route path="/" component={Login} />
+            </Switch>
           </div>
         </Router>
       </div>

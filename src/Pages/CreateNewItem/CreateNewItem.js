@@ -78,16 +78,17 @@ class CreateNewItem extends Component {
                         <option className='createNewOptions' value="">Select</option>
                         {loopedHolidays}
                     </select>
-                    <button onClick={this.CreateNewItemSubmit}>Submit</button>
-                    <br />
-                    <button style={{ width: '50px', margin: 'auto' }} onClick={this.handleClear}>Clear</button>
+                    <div className='createNewbtnDiv'>
+                        <button className='createNewClearButton' onClick={this.handleClear}>Clear</button>
+                        <button className='createNewSubmitButton' onClick={this.CreateNewItemSubmit}>Submit</button>
+                    </div>
                 </div>
                 <div className='createNewDisplay'>
                     <div>
                         <div className='displayedItems'>
-                            {!this.props.newItem ? 'Item' : this.props.newItem}
-                            <div><img className='displayedItemsImg' src={this.props.itemImage} alt="Image" /></div>
-                            {this.props.holiday ? holidays[this.props.holiday - 1] : 'Holiday'}
+                            {!this.props.newItem ? '' : this.props.newItem}
+                            <div>{this.props.itemImage ? <img className='displayedItemsImg' src={this.props.itemImage} /> : ''}</div>
+                            {this.props.holiday ? holidays[this.props.holiday - 1] : ''}
                         </div>
                     </div>
                 </div>

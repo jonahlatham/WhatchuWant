@@ -1,17 +1,16 @@
 .createNewFlex {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    text-align: center;
 }
 
 .createNewApp {
-    margin: auto;
     margin-top: 5px;
     display: flex;
     flex-direction: column;
 }
 
 .createNewDisplay {
-    margin: auto;
     margin-top: 5px;
     display: flex;
     flex-direction: column;
@@ -26,12 +25,10 @@
     width: 200px;
     height: 20px;
     padding-left: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     border-style: solid;
     border-width: .5px;
     border-color: #c7c5c5;
-    border-radius: 5px;
-    font-family: monospace;
     font-size: 12px;
     font-weight: 600;
     padding: 3px;
@@ -53,15 +50,46 @@
     cursor: pointer;
     display: inline-block;
     position: relative;
-    font: normal 11px/22px monospace;
     color: black;
     border: 1px solid #ccc;
     height: 25px;
     padding: 5px;
     margin-bottom: 15px;
+    background: white;
+    border-radius: 0px !important;
 }
 
 .createNewSelect:focus {
     outline: none;
-    border: 1px solid black;
+}
+
+.createNewSubmitButton {
+    width: 35%;
+    height: 25px;
+    margin-top: 32px;
+    margin-left: 10px;
+    background: none;
+    border-radius: 5px;
+}
+
+.createNewSubmitButton:focus {
+    outline: none;
+}
+
+.createNewClearButton {
+    width: 35%;
+    height: 25px;
+    margin-top: 32px;
+    background: none;
+    border-radius: 5px;
+}
+
+.createNewClearButton:focus {
+    outline: none;
+}
+
+.createNewbtnDiv {
+    margin-top: -18px;
+    justify-content: center;
+    display: flex;
 }

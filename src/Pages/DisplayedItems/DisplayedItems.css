@@ -1,7 +1,6 @@
 .newItems {
     width: 150px;
     height: 150px;
-    border-radius: 25px;
     border-style: solid;
     border-width: 1px;
     padding: 5px;
@@ -9,7 +8,6 @@
 
 .newItemsImg {
     margin: auto;
-    border-radius: 25px;
     width: 100%;
     height: 100%;
 }
@@ -22,15 +20,14 @@
 
 .displayedItems {
     padding: 10px;
-    width: 120px;
+    width: 160px;
     min-height: 150px;
     border-style: solid;
     border-width: 1px;
-    border-radius: 25px;
+    margin-left: 30px;
 }
 
 .displayedItemsImg {
     width: 90%;
     height: 90%;
-    border-radius: 10px;
 }

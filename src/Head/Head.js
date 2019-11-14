@@ -21,8 +21,8 @@ class Head extends Component {
     }
     render() {
         return (
-            <div className='headApp'>
-                {this.props.user ? <button className='logoutButton' onClick={this.handleLogout}>Logout</button> : <Link className='loginLink' to='/'><strong>Login</strong></Link>}
+            <div className='linkDiv'>
+                {this.props.user ? <p className='logoutButton' onClick={this.handleLogout}><strong className='linkDiv'>Log Out</strong></p> : <Link className='loginLink' to='/'><strong>Login</strong></Link>}
             </div>
         )
     }
