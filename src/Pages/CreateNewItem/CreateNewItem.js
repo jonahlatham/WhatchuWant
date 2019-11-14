@@ -39,11 +39,19 @@ class CreateNewItem extends Component {
         })
     }
 
+    handleItemPrice = (event) => {
+        this.props.dispatch({
+            type: 'PRICE',
+            payload: event.target.value
+        })
+    }
+
     CreateNewItemSubmit = (event) => {
         const body = {
             name: this.props.newItem,
             holiday_id: this.props.holiday,
-            img: this.props.itemImage
+            img: this.props.itemImage,
+            price: this.props.itemPrice
         }
         axios.post('/api/createNew', body)
             .then((response) => {
@@ -69,11 +77,13 @@ class CreateNewItem extends Component {
         const holidays = this.state.holidays.map((e) => {
             return e.name
         })
+        // let priceTag = this.props.itemPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
         return (
             <div className='createNewFlex'>
                 <div className='createNewApp'>
                     <input className='createNewInputs' placeholder='Item' onChange={this.handleNewItem} type="text" value={this.props.newItem} />
                     <input className='createNewInputs' placeholder='Image URL' onChange={this.handleImage} type="text" value={this.props.itemImage} />
+                    <input className='createNewInputs' placeholder='Price' onChange={this.handleItemPrice} type="text" value={this.props.itemPrice} />
                     <select className='createNewSelect' onChange={this.handleHoliday}>
                         <option className='createNewOptions' value="">Select</option>
                         {loopedHolidays}
@@ -86,9 +96,9 @@ class CreateNewItem extends Component {
                 <div className='createNewDisplay'>
                     <div>
                         <div className='displayedItems'>
-                            {!this.props.newItem ? '' : this.props.newItem}
-                            <div>{this.props.itemImage ? <img className='displayedItemsImg' src={this.props.itemImage} /> : ''}</div>
-                            {this.props.holiday ? holidays[this.props.holiday - 1] : ''}
+                            <div className='itemPriceDiv'>{!this.props.newItem ? '' : this.props.newItem} | {this.props.holiday ? holidays[this.props.holiday - 1] : ''}</div>
+                            {!this.props.itemPrice ? '$' : `$${this.props.itemPrice}`}
+                            <div className='imageContainer'>{this.props.itemImage ? <img className='displayedItemsImg' src={this.props.itemImage} /> : ''}</div>
                         </div>
                     </div>
                 </div>

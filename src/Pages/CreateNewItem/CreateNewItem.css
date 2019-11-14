@@ -25,7 +25,7 @@
     width: 200px;
     height: 20px;
     padding-left: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 7px;
     border-style: solid;
     border-width: .5px;
     border-color: #c7c5c5;
@@ -89,7 +89,20 @@
 }
 
 .createNewbtnDiv {
-    margin-top: -18px;
+    margin-top: -25px;
     justify-content: center;
     display: flex;
+}
+
+.itemPriceDiv {
+    border-style: solid;
+    border-width: 1px;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+}
+
+.imageContainer {
+    width: 200px;
+    margin-top: 3px;
 }

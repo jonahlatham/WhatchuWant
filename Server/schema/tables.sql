@@ -17,6 +17,7 @@ create table holidays (
 create table items (
     id serial primary key,
     name varchar,
+    price varchar,
     holiday_id int,
     img varchar,
     creator_id int,
