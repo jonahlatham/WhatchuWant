@@ -1,43 +1,68 @@
-.headerApp {
-    width: 75px;
-    min-height: 650px;
-    background: #2b518a;
-    transition-delay: 500ms;
-}
+.headerApp {}
 
-.headerApp:hover {
-    transition-delay: 200ms;
-    width: 175px;
-}
+.headerApp:hover {}
 
 .headerLinksHidden {
-    transition-delay: 200ms;
-    opacity: 0;
-    width: 100px;
-    min-height: 650px;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
-.headerLinksHidden:hover {
-    transition-delay: 200ms;
-    opacity: 1;
-    min-height: 650px;
-    width: 175px;
-    display: flex;
-    flex-direction: column;
+.openStyles {
+    padding: 8px 8px 8px 32px;
+    width: 200px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
 }
 
 .link {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5px;
+    margin-top: 15px;
     text-decoration: none;
-    color: black;
-    font-size: 15px;
+    font-size: 17px;
     min-height: 25px;
-    width: 150px;
-    background: radial-gradient(#ffffff8f 5%, #2b518a8a 75%, #2b518a 20%)
+    width: 100px;
+    color: white;
+}
+
+.linkDiv {
+    margin-top: 15px;
 }
 
 .link:hover {
-    background: radial-gradient(#ffffff8f 25%, #2b518a8a 55%, #2b518a 20%)
+    color: #adadad;
+}
+
+.hamburger {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.sideBarX {
+    width: 30px;
+    font-size: 25px;
+    padding: 7px;
+    border-radius: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    margin-top: -5px;
+}
+
+.sideBarX:hover {
+    color: #adadad;
 }

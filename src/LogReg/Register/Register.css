@@ -1,31 +1,46 @@
 .registerApp {
-    margin-left: 15px;
-    text-align: left;
+    margin: auto;
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 
 .registerInputs {
-    margin-bottom: 10px;
-    width: 60%;
+    margin: auto;
+    margin-bottom: 15px;
+    width: 100%;
     height: 35px;
     border-style: solid;
-    border-width: 1px;
-    border-color: gray;
-    border-radius: 5px;
+    border-width: 2px;
     font-size: 15px;
     padding-left: 5px;
+    border-radius: 2px;
 }
 
 .registerInputs:focus {
     outline: none;
-    background: #dbeef3;
 }
 
 .registerButton {
-    width: 25%;
+    width: 45%;
+    height: 30px;
     margin: auto;
-    margin-top: 10px;
+    margin-top: 30px;
+    margin-bottom: -3px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.registerButton:focus {
+    outline: none;
+}
+
+.registerButton:active {
+    border-color: black;
+}
+
+.registerButton:hover {
+    background: #f3f3f3;
 }
 
 .passText {
@@ -35,6 +50,6 @@
 }
 
 .registerRegi {
-    font-size: 30px;
+    font-size: 35px;
     margin: auto;
 }

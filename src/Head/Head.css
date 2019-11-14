@@ -5,6 +5,9 @@
 .logoutButton {
     cursor: pointer;
     border: none;
+    font-size: 15px;
+    color: black;
+    padding: 10px;
 }
 
 .logoutButton:hover {
@@ -15,4 +18,14 @@
     -o-transform: scale(-1, 1);
     -ms-transform: scale(-1, 1);
     transform: scale(-1, 1);
+}
+
+.loginLink {
+    font-size: 15px;
+    color: black;
+    padding: 10px;
+}
+
+.loginLink:hover {
+    color: gray;
 }

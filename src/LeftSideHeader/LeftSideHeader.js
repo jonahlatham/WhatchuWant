@@ -6,6 +6,22 @@ import { withRouter } from "react-router";
 import { connect } from 'react-redux';
 
 class LeftSideHeader extends Component {
+    state = {
+        sideBar: false
+    }
+
+    handleBar = () => {
+        this.setState({
+            sideBar: true
+        })
+    }
+
+    handleNoBar = () => {
+        this.setState({
+            sideBar: false
+        })
+    }
+
     handleLogout = () => {
         axios.delete('/auth/user')
             .then((response) => {
@@ -25,17 +41,21 @@ class LeftSideHeader extends Component {
                 {
                     this.props.user ? (
                         <div className='headerApp'>
-                            <div className='headerLinksHidden'>
-                                <Link className='link' to='/Home'>Home</Link>
-                                <br />
-                                <Link className='link' to='/CreateNewItem/'>Create New</Link>
-                                <br />
-                                <Link className='link' to='/DisplayedItems/'>Displayed Items</Link>
+                            <i onClick={this.handleBar} class="fas fa-bars hamburger"></i>
+                            <div className={`${this.state.sideBar ? 'headerLinksHidden openStyles' : 'headerLinksHidden'}`}>
+                                <p className='sideBarX' onClick={this.handleNoBar}><strong>x</strong></p>
+                                <br /><br />
+                                <div className='linkDiv'>
+                                    <Link onClick={this.handleNoBar} className='link' to='/Home'>Home</Link>
+                                </div>
+                                <div className='linkDiv'>
+                                    <Link onClick={this.handleNoBar} className='link' to='/CreateNewItem/'>Create New</Link>
+                                </div>
+                                <div className='linkDiv'>
+                                    <Link onClick={this.handleNoBar} className='link' to='/DisplayedItems/'>Displayed Items</Link>
+                                </div>
                             </div>
                         </div>
-                        // <div className='headerRight'>
-                        //     {this.props.user ? <button className='logoutButton' onClick={this.handleLogout}>Logout</button> : <Link className='' to='/'>Login</Link>}
-                        // </div>
                     ) : ''
                 }
             </div>
