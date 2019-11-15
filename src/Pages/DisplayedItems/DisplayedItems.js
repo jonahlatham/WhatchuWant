@@ -28,7 +28,7 @@ class DisplayedItems extends Component {
 
             })
     }
-    render() {
+    render() { 
         const holidays = this.state.holidays.map((e) => {
             return e.name
         })
