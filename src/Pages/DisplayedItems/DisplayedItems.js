@@ -36,7 +36,7 @@ class DisplayedItems extends Component {
             if (e.creator_id === this.props.user.id) {
                 return <div className='displayedItems' key={e.id}>
                    <div className='itemPriceDiv'>{e.name} | {holidays[e.holiday_id-1]}</div> 
-                    {e.price}
+                    ${e.price}
                     <div className='imageContainer'><img className='displayedItemsImg' src={e.img} alt="img" /></div>
                 </div>
             } else {
