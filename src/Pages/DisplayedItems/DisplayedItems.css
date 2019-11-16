@@ -19,6 +19,8 @@
 }
 
 .displayedItems {
+    /* margin: auto; */
+    text-align: center;
     padding: 10px;
     min-width: 160px;
     min-height: 150px;

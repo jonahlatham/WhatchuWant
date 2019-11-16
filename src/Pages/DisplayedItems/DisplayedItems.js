@@ -35,9 +35,9 @@ class DisplayedItems extends Component {
         const displayedItems = this.state.items.map((e) => {
             if (e.creator_id === this.props.user.id) {
                 return <div className='displayedItems' key={e.id}>
-                    {e.name}
+                   <div className='itemPriceDiv'>{e.name} | {holidays[e.holiday_id-1]}</div> 
+                    {e.price}
                     <div className='imageContainer'><img className='displayedItemsImg' src={e.img} alt="img" /></div>
-                    {holidays[e.holiday_id-1]}
                 </div>
             } else {
                 return ''
