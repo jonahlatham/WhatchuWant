@@ -95,7 +95,7 @@ app.post('/auth/register', (req, res, next) => {
             if (user) {
                 throw 'This email is already in use, please login.'
             } else if (!condition1 || !condition2 || !condition3 || !condition4) {
-                throw 'You just got flipped the bird.'
+                throw 'Make sure all of the boxes are green before submitting.'
             } else {
                 return bcrypt.hash(password, 10)
             }

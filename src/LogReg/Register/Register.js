@@ -59,22 +59,42 @@ class Register extends Component {
         return (
             <div className='registerApp'>
                 <h5 className='registerRegi'>Register</h5>
-                <br/><br/>
+                <br /><br />
                 <p>First Name</p>
-                <input autoComplete={false} style={{ borderColor: /^[a-zA-Z]+$/.test(this.state.first_name) ? 'green' : 'red' }} className='registerInputs' name='first_name' value={this.state.first_name} onChange={this.handleChange}  type="text" />
+                <input onKeyPress={event => {
+                    if (event.key === 'Enter') {
+                        this.handleRegister()
+                    }
+                }} autoComplete={false} style={{ borderColor: /^[a-zA-Z]+$/.test(this.state.first_name) ? 'green' : 'red' }} className='registerInputs' name='first_name' value={this.state.first_name} onChange={this.handleChange} type="text" />
                 <p>Last Name</p>
-                <input autoComplete={false} style={{ borderColor: /^[a-zA-Z]+$/.test(this.state.last_name) ? 'green' : 'red' }} className='registerInputs' name='last_name' value={this.state.last_name} onChange={this.handleChange} type="text" />
+                <input onKeyPress={event => {
+                    if (event.key === 'Enter') {
+                        this.handleRegister()
+                    }
+                }} autoComplete={false} style={{ borderColor: /^[a-zA-Z]+$/.test(this.state.last_name) ? 'green' : 'red' }} className='registerInputs' name='last_name' value={this.state.last_name} onChange={this.handleChange} type="text" />
                 <p>E-Mail</p>
-                <input autoComplete={false} style={{ borderColor: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email) ? 'green' : 'red' }} className='registerInputs' name='email' value={this.state.email} onChange={this.handleChange} type="text" />
+                <input onKeyPress={event => {
+                    if (event.key === 'Enter') {
+                        this.handleRegister()
+                    }
+                }} autoComplete={false} style={{ borderColor: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.state.email) ? 'green' : 'red' }} className='registerInputs' name='email' value={this.state.email} onChange={this.handleChange} type="text" />
                 <p>Password</p>
                 <small className='passText'>
-                    ** Must be 7-15 characters and include one<br/> numeric digit and a special character **
+                    ** Must be 7-15 characters and include one<br /> numeric digit and a special character **
                 </small>
-                <input autoComplete={false} style={{ borderColor: /^(?=.*[0-9])(?=.*[!@#$%^&*_+-=:;'()])[a-zA-Z0-9!@#$%^&*_+-=:;'()]{7,15}$/.test(this.state.password) ? 'green' : 'red' }} className='registerInputs' name='password' value={this.state.password} onChange={this.handleChange} type="password" />
+                <input onKeyPress={event => {
+                    if (event.key === 'Enter') {
+                        this.handleRegister()
+                    }
+                }} autoComplete={false} style={{ borderColor: /^(?=.*[0-9])(?=.*[!@#$%^&*_+-=:;'()])[a-zA-Z0-9!@#$%^&*_+-=:;'()]{7,15}$/.test(this.state.password) ? 'green' : 'red' }} className='registerInputs' name='password' value={this.state.password} onChange={this.handleChange} type="password" />
                 <p>Re-Enter Password</p>
-                <input autoComplete={false} style={{ borderColor: this.state.password === this.state.doubleCheck ? 'green' : 'red' }} className='registerInputs' name='doubleCheck' value={this.state.doubleCheck} onChange={this.handleChange} type="password" />
+                <input onKeyPress={event => {
+                    if (event.key === 'Enter') {
+                        this.handleRegister()
+                    }
+                }} autoComplete={false} style={{ borderColor: this.state.password === this.state.doubleCheck ? 'green' : 'red' }} className='registerInputs' name='doubleCheck' value={this.state.doubleCheck} onChange={this.handleChange} type="password" />
                 <button onClick={this.handleRegister} className='registerButton'><strong>Register</strong></button>
-                <Link style={{ margin: 'auto' }} className='loginLink' to='/'><small><small>Already a member? Log in here.</small></small></Link>
+                <Link style={{ margin: 'auto' }} className='loginLink' to='/'><small className='passText'>Already a member? Log in here.</small></Link>
             </div>
         )
     }
