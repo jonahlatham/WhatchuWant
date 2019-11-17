@@ -26,7 +26,7 @@ class DisplayedItems extends Component {
                 })
                 console.log(this.state.holidays);
 
-            })
+            }) 
     }
     render() { 
         const holidays = this.state.holidays.map((e) => {
