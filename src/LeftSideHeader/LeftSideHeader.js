@@ -40,7 +40,7 @@ class LeftSideHeader extends Component {
         return (
             <div>
                 {
-                    this.props.user ? (
+                    this.props.user ? ( 
                         <div className='headerApp'>
                             <i onClick={this.handleBar} className="fas fa-bars hamburger"></i>
                             <div className={`${this.state.sideBar ? 'headerLinksHidden openStyles' : 'headerLinksHidden'}`}>
