@@ -57,7 +57,7 @@ class LeftSideHeader extends Component {
                                 </div>
                             <Head />
                             </div>
-                        </div>
+                        </div> 
                     ) : ''
                 }
             </div>
