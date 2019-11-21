@@ -104,5 +104,6 @@
 
 .imageContainer {
     width: 200px;
+    margin: auto;
     margin-top: 3px;
 }
