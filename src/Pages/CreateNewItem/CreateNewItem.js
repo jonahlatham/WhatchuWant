@@ -100,16 +100,16 @@ class CreateNewItem extends Component {
                     </select>
                     <select className='createNewSelect' onChange={this.handleRating}>
                         <option value="">Select Rating</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={4}>4</option>
+                        <option value={5}>5</option>
+                        <option value={6}>6</option>
+                        <option value={7}>7</option>
+                        <option value={8}>8</option>
+                        <option value={9}>9</option>
+                        <option value={10}>10</option>
                     </select>
                     <div className='createNewbtnDiv'>
                         <button className='createNewClearButton' onClick={this.handleClear}>Clear</button>
@@ -119,10 +119,12 @@ class CreateNewItem extends Component {
                 <div className='createNewDisplay'>
                     <div>
                         <div className='displayedItems'>
-                            <div className='itemPriceDiv'>{!this.props.newItem ? '' : this.props.newItem} | {this.props.holiday ? holidays[this.props.holiday - 1] : ''}</div>
-                            {!this.props.itemPrice ? '$' : `$${this.props.itemPrice}`}
+                            <h4 className='itemPriceDiv'>{!this.props.newItem ? '' : this.props.newItem}</h4>
+                            <div className='holidayDiv'>{!this.props.itemPrice ? '$' : `$${this.props.itemPrice}`} | {this.props.holiday ? holidays[this.props.holiday - 1] : ''}</div>
                             <div className='imageContainer'>{this.props.itemImage ? <img className='displayedItemsImg' src={this.props.itemImage} /> : ''}</div>
                         </div>
+                        <img className='fireRating' src="https://dejpknyizje2n.cloudfront.net/marketplace/products/modern-flame-fire-logo-sticker-1539108491.5454743.png" alt="fire"/>
+                        <img className='fireRating' src="https://myrealdomain.com/images/fire-logo-png-4.jpg" alt="fire"/>
                     </div>
                 </div>
             </div>

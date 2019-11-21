@@ -15,7 +15,7 @@
 .displayedItemsApp {
     margin: auto;
     padding: 10px;
-    width: 950px;
+    max-width: 950px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

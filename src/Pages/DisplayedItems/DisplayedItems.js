@@ -43,9 +43,8 @@ class DisplayedItems extends Component {
             if (e.creator_id === this.props.user.id) {
                 return <div className='displayedItems' key={e.id}>
                     <div className='itemPriceDiv'>
-                        <h4 className='eNameDiv'>{e.name}</h4>
+                        <h4 className='eNameDiv'>{e.rating > 4 ? <img className='fireRating' src="https://dejpknyizje2n.cloudfront.net/marketplace/products/modern-flame-fire-logo-sticker-1539108491.5454743.png" alt="fire" /> : e.rating > 6 ? <div><img className='fireRating' src="https://dejpknyizje2n.cloudfront.net/marketplace/products/modern-flame-fire-logo-sticker-1539108491.5454743.png" alt="fire" /><img className='fireRating' src="https://dejpknyizje2n.cloudfront.net/marketplace/products/modern-flame-fire-logo-sticker-1539108491.5454743.png" alt="fire" /></div> : e.rating > 8 ? <div><img className='fireRating' src="https://dejpknyizje2n.cloudfront.net/marketplace/products/modern-flame-fire-logo-sticker-1539108491.5454743.png" alt="fire" /><img className='fireRating' src="https://dejpknyizje2n.cloudfront.net/marketplace/products/modern-flame-fire-logo-sticker-1539108491.5454743.png" alt="fire" /><img className='fireRating' src="https://dejpknyizje2n.cloudfront.net/marketplace/products/modern-flame-fire-logo-sticker-1539108491.5454743.png" alt="fire" /></div> : ''}{e.name}</h4>
                         <br />
-                        
                     </div>
                     <div className='holidayDiv'>${e.price} | {holidays[e.holiday_id - 1]}</div>
                     <div className='imageContainer'><img className='displayedItemsImg' src={e.img} alt="img" /></div>
