@@ -121,12 +121,22 @@ app.post('/api/createNew', (req, res, nest) => {
     const db = app.get('db')
     const date = new Date()
     const { name, price, holiday_id, img } = req.body
-    db.items.insert({ name, price, holiday_id, img, creator_id: req.session.user.id, date_created: date, date_updated: date })
+    db.items.insert({ name, price, holiday_id, img, creator_id: req.session.user.id, reserved_by_user_id: null, date_created: date, date_updated: date })
         .then((item) => {
             res.send({ success: true, item })
         })
         .catch((err) => {
             res.send({ success: false, err })
+        })
+})
+
+//reserve item
+
+app.put('/api/createNew', (req, res, next) => {
+    const db = app.get('db')
+    db.items.update({ reserved_by_user_id: req.session.user.id })
+        .then((items) => {
+            res.send(items)
         })
 })
 

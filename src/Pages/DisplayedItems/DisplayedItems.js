@@ -7,7 +7,7 @@ class DisplayedItems extends Component {
 
     state = {
         items: [],
-        holidays: []
+        holidays: [],
     }
 
     componentDidMount() {
@@ -28,6 +28,13 @@ class DisplayedItems extends Component {
 
             }) 
     }
+
+    handleReserve=()=>{
+        axios.put('/api/createNew')
+        .then((response)=>{
+            
+        })
+    }
     render() { 
         const holidays = this.state.holidays.map((e) => {
             return e.name
@@ -38,6 +45,7 @@ class DisplayedItems extends Component {
                    <div className='itemPriceDiv'>{e.name} | {holidays[e.holiday_id-1]}</div> 
                     ${e.price}
                     <div className='imageContainer'><img className='displayedItemsImg' src={e.img} alt="img" /></div>
+                    <button>Reserve</button>
                 </div>
             } else {
                 return ''
