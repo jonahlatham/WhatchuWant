@@ -23,7 +23,7 @@ class DisplayedItems extends Component {
             .then((response) => {
                 this.setState({
                     holidays: response.data.holidays
-                })
+                }) 
                 console.log(this.state.holidays);
 
             }) 
@@ -32,7 +32,7 @@ class DisplayedItems extends Component {
     handleReserve=()=>{
         axios.put('/api/createNew')
         .then((response)=>{
-            
+
         })
     }
     render() { 
