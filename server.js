@@ -120,8 +120,8 @@ app.post('/auth/register', (req, res, next) => {
 app.post('/api/createNew', (req, res, nest) => {
     const db = app.get('db')
     const date = new Date()
-    const { name, price, holiday_id, img } = req.body
-    db.items.insert({ name, price, holiday_id, img, creator_id: req.session.user.id, reserved_by_user_id: null, date_created: date, date_updated: date })
+    const { name, price, holiday_id, img, rating } = req.body
+    db.items.insert({ name, price, holiday_id, img, rating, creator_id: req.session.user.id, reserved_by_user_id: null, date_created: date, date_updated: date })
         .then((item) => {
             res.send({ success: true, item })
         })

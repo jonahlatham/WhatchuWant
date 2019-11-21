@@ -54,7 +54,7 @@
     border: 1px solid #ccc;
     height: 25px;
     padding: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 7px;
     background: white;
     border-radius: 0px !important;
 }
@@ -72,6 +72,11 @@
     border-radius: 5px;
 }
 
+.createNewClearButton:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
 .createNewSubmitButton:focus {
     outline: none;
 }
@@ -82,6 +87,11 @@
     margin-top: 32px;
     background: none;
     border-radius: 5px;
+}
+
+.createNewSubmitButton:hover {
+    cursor: pointer;
+    opacity: .8;
 }
 
 .createNewClearButton:focus {

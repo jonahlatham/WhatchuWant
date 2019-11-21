@@ -6,7 +6,8 @@ import axios from 'axios'
 class CreateNewItem extends Component {
 
     state = {
-        holidays: []
+        holidays: [],
+        rating: 0,
     }
 
     componentDidMount() {
@@ -46,12 +47,20 @@ class CreateNewItem extends Component {
         })
     }
 
+    handleRating = (event) =>{
+        this.props.dispatch({
+            type: 'RATING',
+            payload: event.target.value
+        })
+    }
+
     CreateNewItemSubmit = (event) => {
         const body = {
             name: this.props.newItem,
             holiday_id: this.props.holiday,
             img: this.props.itemImage,
-            price: this.props.itemPrice
+            price: this.props.itemPrice,
+            rating: Number(this.props.rating)
         }
         axios.post('/api/createNew', body)
             .then((response) => {
@@ -77,6 +86,7 @@ class CreateNewItem extends Component {
         const holidays = this.state.holidays.map((e) => {
             return e.name
         })
+
         // let priceTag = this.props.itemPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
         return (
             <div className='createNewFlex'>
@@ -85,8 +95,21 @@ class CreateNewItem extends Component {
                     <input className='createNewInputs' placeholder='Image URL' onChange={this.handleImage} type="text" value={this.props.itemImage} />
                     <input className='createNewInputs' placeholder='Price' onChange={this.handleItemPrice} type="text" value={this.props.itemPrice} />
                     <select className='createNewSelect' onChange={this.handleHoliday}>
-                        <option className='createNewOptions' value="">Select</option>
+                        <option className='createNewOptions' value="">Select Holiday</option>
                         {loopedHolidays}
+                    </select>
+                    <select className='createNewSelect' onChange={this.handleRating}>
+                        <option value="">Select Rating</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                     </select>
                     <div className='createNewbtnDiv'>
                         <button className='createNewClearButton' onClick={this.handleClear}>Clear</button>

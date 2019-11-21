@@ -23,27 +23,31 @@ class DisplayedItems extends Component {
             .then((response) => {
                 this.setState({
                     holidays: response.data.holidays
-                }) 
+                })
                 console.log(this.state.holidays);
 
-            }) 
+            })
     }
 
-    handleReserve=()=>{
+    handleReserve = () => {
         axios.put('/api/createNew')
-        .then((response)=>{
+            .then((response) => {
 
-        })
+            })
     }
-    render() { 
+    render() {
         const holidays = this.state.holidays.map((e) => {
             return e.name
         })
         const displayedItems = this.state.items.map((e) => {
             if (e.creator_id === this.props.user.id) {
                 return <div className='displayedItems' key={e.id}>
-                   <div className='itemPriceDiv'>{e.name} | {holidays[e.holiday_id-1]}</div> 
-                    ${e.price}
+                    <div className='itemPriceDiv'>
+                        <h4 className='eNameDiv'>{e.name}</h4>
+                        <br />
+                        
+                    </div>
+                    <div className='holidayDiv'>${e.price} | {holidays[e.holiday_id - 1]}</div>
                     <div className='imageContainer'><img className='displayedItemsImg' src={e.img} alt="img" /></div>
                     <button className='reserveButton'>Reserve</button>
                 </div>

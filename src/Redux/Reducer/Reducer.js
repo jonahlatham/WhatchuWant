@@ -66,4 +66,15 @@ const holiday = (state = '', action) => {
     }
 }
 
-export default combineReducers({ user, newItem, itemPrice, holiday, itemImage })
+const rating = (state = 0, action) => {
+    switch(action.type){
+        case 'RATING':
+            return action.payload
+        case 'SUBMIT':
+            return ''
+        default:
+            return state
+    }
+}
+
+export default combineReducers({ user, newItem, itemPrice, holiday, rating, itemImage })

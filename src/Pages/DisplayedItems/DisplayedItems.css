@@ -13,9 +13,12 @@
 }
 
 .displayedItemsApp {
+    margin: auto;
     padding: 10px;
+    width: 950px;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .displayedItems {
@@ -33,7 +36,29 @@
 }
 
 .reserveButton {
-    border-style: none;
-    font-size: 15px;
-    color: #3d3d9c;
+    width: 35%;
+    height: 25px;
+    margin: auto;
+    margin-top: 5px;
+    background: none;
+    border-radius: 5px;
+}
+
+.reserveButton:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+.reserveButton:focus {
+    outline: none;
+}
+
+.eNameDiv {
+    margin: auto;
+    margin-bottom: -20px;
+    width: 175px;
+}
+
+.holidayDiv {
+    opacity: .5;
 }

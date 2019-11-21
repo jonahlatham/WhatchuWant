@@ -21,6 +21,7 @@ create table items (
     holiday_id int,
     img varchar,
     creator_id int,
+    rating int,
     reserved_by_user_id int,
     date_created TIMESTAMP,
     date_updated TIMESTAMP,
