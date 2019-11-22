@@ -55,10 +55,21 @@
 
 .eNameDiv {
     margin: auto;
-    margin-bottom: -20px;
+    margin-bottom: -30px;
     width: 175px;
+    display: flex;
+    justify-content: center;
 }
 
 .holidayDiv {
     opacity: .5;
+}
+
+.fires {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.nameDiv {
+    padding-top: 6px;
 }

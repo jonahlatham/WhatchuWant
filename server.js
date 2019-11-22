@@ -115,9 +115,22 @@ app.post('/auth/register', (req, res, next) => {
 
 //////////////////////////////////////////////////////////////////////////////////////
 
+//all users
+
+app.get('/api/people', (req,res,next)=>{
+    const db = app.get('db')
+    db.people.find()
+        .then((people) => {
+            res.send({ people: people })
+        })
+        .catch((err) => {
+            res.send({ success: false, err })
+        })
+})
+
 //add new items
 
-app.post('/api/createNew', (req, res, nest) => {
+app.post('/api/createNew', (req, res, next) => {
     const db = app.get('db')
     const date = new Date()
     const { name, price, holiday_id, img, rating } = req.body
@@ -134,9 +147,12 @@ app.post('/api/createNew', (req, res, nest) => {
 
 app.put('/api/createNew', (req, res, next) => {
     const db = app.get('db')
-    db.items.update({ reserved_by_user_id: req.session.user.id })
+    db.items.update({id: req.body.item_id},{ reserved_by_user_id: req.session.user.id })
         .then((items) => {
             res.send(items)
+        })
+        .catch((err)=>{
+            res.send({success: false, err})
         })
 })
 

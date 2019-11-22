@@ -55,6 +55,9 @@ class LeftSideHeader extends Component {
                                 <div className='linkDiv'>
                                     <Link onClick={this.handleNoBar} className='link' to='/DisplayedItems/'><strong>Displayed Items</strong></Link>
                                 </div>
+                                <div className='linkDiv'>
+                                    <Link onClick={this.handleNoBar} className='link' to='/People/'><strong>Friends</strong></Link>
+                                </div>
                             <Head />
                             </div>
                         </div> 
