@@ -16,13 +16,10 @@ export default class People extends Component {
                 console.log(this.state.people)
             })
     }
-    handleTakeToPeople = () => {
-
-    }
 
     render() {
         const peeps = this.state.people.map((e,i)=>{
-           return <Link key={1} to={`/people/${e.id}`} >
+           return <Link key={e.id} to={`/peopleItems/${e.id}`} >
                     < div key={e.id}>{e.first_name} {e.last_name}</div>
             </Link >
         })
