@@ -117,11 +117,24 @@ app.post('/auth/register', (req, res, next) => {
 
 //all users
 
-app.get('/api/people', (req,res,next)=>{
+app.get('/api/people', (req, res, next) => {
     const db = app.get('db')
     db.people.find()
         .then((people) => {
             res.send({ people: people })
+        })
+        .catch((err) => {
+            res.send({ success: false, err })
+        })
+})
+
+//items of one user
+app.get(`/api/displayItems/:id`, (req, res, next) => {
+    const db = app.get('db')
+    const { id } = req.params
+    db.items.find({ creator_id: id })
+        .then((items) => {
+            res.send({ items: items })
         })
         .catch((err) => {
             res.send({ success: false, err })
@@ -147,12 +160,12 @@ app.post('/api/createNew', (req, res, next) => {
 
 app.put('/api/createNew', (req, res, next) => {
     const db = app.get('db')
-    db.items.update({id: req.body.item_id},{ reserved_by_user_id: req.session.user.id })
+    db.items.update({ id: req.body.item_id }, { reserved_by_user_id: req.session.user.id })
         .then((items) => {
             res.send(items)
         })
-        .catch((err)=>{
-            res.send({success: false, err})
+        .catch((err) => {
+            res.send({ success: false, err })
         })
 })
 

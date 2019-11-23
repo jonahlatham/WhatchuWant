@@ -123,8 +123,8 @@ class CreateNewItem extends Component {
                             <div className='holidayDiv'>{!this.props.itemPrice ? '$' : `$${this.props.itemPrice}`} | {this.props.holiday ? holidays[this.props.holiday - 1] : ''}</div>
                             <div className='imageContainer'>{this.props.itemImage ? <img className='displayedItemsImg' src={this.props.itemImage} /> : ''}</div>
                         </div>
-                        <img className='fireRating' src="https://dejpknyizje2n.cloudfront.net/marketplace/products/modern-flame-fire-logo-sticker-1539108491.5454743.png" alt="fire"/>
-                        <img className='fireRating' src="https://myrealdomain.com/images/fire-logo-png-4.jpg" alt="fire"/>
+                        {/* <img className='fireRating' src="https://dejpknyizje2n.cloudfront.net/marketplace/products/modern-flame-fire-logo-sticker-1539108491.5454743.png" alt="fire"/>
+                        <img className='fireRating' src="https://myrealdomain.com/images/fire-logo-png-4.jpg" alt="fire"/> */}
                     </div>
                 </div>
             </div>
