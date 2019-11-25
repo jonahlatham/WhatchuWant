@@ -70,7 +70,7 @@ app.post('/auth/login', (req, res, next) => {
         })
         .then((isMatch) => {
             if (!isMatch) {
-                throw (`Your credentials don't match our records.`)
+                throw `Your credentials don't match our records.`
             }
             delete catchUser.password
             req.session.user = catchUser;
@@ -182,7 +182,6 @@ app.put('/api/createNew', (req, res, next) => {
     const db = app.get('db')
     db.items.update({ id: req.body.item_id }, { reserved_by_user_id: req.session.user.id })
         .then((items) => {
-            // return db.items.find()
             return db.items.find({ creator_id: req.session.user.id })
         })
         .then((items) => {
@@ -195,6 +194,31 @@ app.put('/api/createNew', (req, res, next) => {
             res.send({ success: false, err })
         })
 })
+
+app.put('/api/createNewTwo', (req, res, next) => {
+    const db = app.get('db')
+    db.items.findOne({ id: req.body.item_id })
+        .then((item) => {
+            if (item.reserved_by_user_id === req.session.user.id) {
+                return db.items.update({ id: req.body.item_id }, { reserved_by_user_id: null })
+            } else {
+                throw 'Something went wrong!!!'
+            }
+        })
+        .then((items) => {
+            return db.items.find({ creator_id: req.session.user.id })
+        })
+        .then((items) => {
+            return getUserName(items, db)
+        })
+        .then((items) => {
+            res.send({ items: items })
+        })
+        .catch((err) => {
+            res.send({ success: false, err })
+        })
+})
+
 
 //holidays
 

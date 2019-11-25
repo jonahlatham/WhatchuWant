@@ -25,17 +25,17 @@ class DisplayedItems extends Component {
             })
     }
 
-    handleReserve = (id) => {
-        let body = {
-            item_id: id
-        }
-        axios.put('/api/createNew', body)
-            .then((response) => {
-                this.setState({
-                    items: response.data.items
-                })
-            })
-    }
+    // handleReserve = (id) => {
+    //     let body = {
+    //         item_id: id
+    //     }
+    //     axios.put('/api/createNew', body)
+    //         .then((response) => {
+    //             this.setState({
+    //                 items: response.data.items
+    //             })
+    //         })
+    // }
 
     render() {
         const holidays = this.state.holidays.map((e) => {
@@ -62,8 +62,7 @@ class DisplayedItems extends Component {
                 </div>
                 <div className='holidayDiv'>${e.price} | {holidays[e.holiday_id - 1]}</div>
                 <div className='imageContainer'><img className='displayedItemsImg' src={e.img} alt="img" /></div>
-                    {e.reserved_by_user_id ? `This is reserved by ${e.user_name}` : ''}
-                <button className='reserveButton' onClick={() => { this.handleReserve(e.id) }}>Reserve</button>
+                {e.reserved_by_user_id ? `This is reserved by ${e.user_name}` : ''}
             </div >
         })
         return (

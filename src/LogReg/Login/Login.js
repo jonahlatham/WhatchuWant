@@ -50,6 +50,8 @@ class Login extends Component {
                 }} onChange={this.handleChange} name='password' value={this.state.password} className='loginInput' type="password" />
                 <button onClick={this.handleLogin} className='loginButton'><strong>Log In</strong></button>
                 <Link className='loginLink' to='/Register'><small>Register</small></Link>
+
+                password7-15
             </div>
         )
     }

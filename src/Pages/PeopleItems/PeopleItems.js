@@ -5,7 +5,8 @@ import axios from 'axios'
 export default class PeopleItems extends Component {
     state = {
         items: [],
-        holidays: []
+        holidays: [],
+        people: []
     }
 
     componentDidMount() {
@@ -20,6 +21,13 @@ export default class PeopleItems extends Component {
                 this.setState({
                     holidays: response.data.holidays
                 })
+                return axios.get('/api/people')
+                    .then((response) => {
+                        this.setState({
+                            people: response.data.people
+                        })
+                        console.log(this.state.people)
+                    })
             })
     }
 
@@ -33,11 +41,35 @@ export default class PeopleItems extends Component {
                     items: response.data.items
                 })
             })
+            window.location.reload()
     }
 
+    handleUnReserve = (id) => {
+        let body = {
+            item_id: id,
+        }
+        axios.put('/api/createNewTwo', body)
+            .then((response) => {
+                this.setState({
+                    items: response.data.items
+                })
+            })
+            window.location.reload()
+            }
+
     render() {
+        console.log(this.props.match.params.id)
         let holidays = this.state.holidays.map((e) => {
             return e.name
+        })
+
+        const names = this.state.people.map((e) => {
+            if (Number(this.props.match.params.id) ===e.id){
+                console.log(e.first_name)
+                return `${e.first_name} ${e.last_name}`
+            } else {
+                return ''
+            }
         })
 
         const fire = <div><img className='fireRating' src="https://dejpknyizje2n.cloudfront.net/marketplace/products/modern-flame-fire-logo-sticker-1539108491.5454743.png" alt="fire" /></div>
@@ -60,12 +92,14 @@ export default class PeopleItems extends Component {
                 <div className='holidayDiv'>${e.price} | {holidays[e.holiday_id - 1]}</div>
                 <div className='imageContainer'><img className='displayedItemsImg' src={e.img} alt="img" /></div>
                 {e.reserved_by_user_id ? `This is reserved by ${e.user_name}` : ''}
-                <button className='reserveButton' onClick={() => { this.handleReserve(e.id) }}>Reserve</button>
+                <br />
+                <button className='reserveButton' onClick={e.reserved_by_user_id ? () => { this.handleUnReserve(e.id) } : () => { this.handleReserve(e.id) }}>{e.reserved_by_user_id ? 'Unreserve' : 'Reserve'}</button>
             </div >
         })
 
         return (
-            <div className='peopleItemsApp'>
+            <div className='peopleItemsApp' >
+                <h1>{names}</h1>
                 <div className='peopleItemsDiv'>
                     {items}
                 </div>
