@@ -15,9 +15,10 @@ class DisplayedItems extends Component {
             .then((response) => {
                 // debugger
                 this.setState({
-                    items: response.data
+                    items: response.data.items
                 })
-                console.log(response.data)
+                // console.log(this.state.items.map((e)=>{return e}))
+                // console.log(this.state.items)
                 return axios.get('/api/holidays')
             })
             .then((response) => {
@@ -30,7 +31,7 @@ class DisplayedItems extends Component {
     handleReserve = () => {
         axios.put('/api/createNew')
             .then((response) => {
-
+                
             })
     }
     render() {
@@ -41,31 +42,30 @@ class DisplayedItems extends Component {
         const fire = <div><img className='fireRating' src="https://dejpknyizje2n.cloudfront.net/marketplace/products/modern-flame-fire-logo-sticker-1539108491.5454743.png" alt="fire" /></div>
         let fires = []
 
-        const displayedItems = Object.keys(this.state.items).map((e) => {
+        const displayedItems = this.state.items.map((e) => {
             if (e.rating > 8) {
-                fires.push(fire, fire, fire)
+                fires = [fire, fire, fire]
             } else if (e.rating > 5) {
-                fires.push(fire, fire)
+                fires = [fire, fire]
             } else if (e.rating > 4) {
-                fires.push(fire)
+                fires = [fire]
             } else {
                 return fires
             }
-            console.log(e)
             // debugger
-            // if (e.creator_id === this.props.user.id) {
+            if (e.creator_id === this.props.user.id) {
                 return <div className='displayedItems' key={e.id}>
                     <div className='itemPriceDiv'>
-                        <h4 className='eNameDiv'> <div className='fires'>{/*{fires}*/}</div>  <div className='nameDiv'>{e.name}</div></h4>
+                        <h4 className='eNameDiv'> <div className='fires'>{fires}</div>  <div className='nameDiv'>{e.name}</div></h4>
                         <br />
                     </div>
                     <div className='holidayDiv'>${e.price} | {holidays[e.holiday_id - 1]}</div>
                     <div className='imageContainer'><img className='displayedItemsImg' src={e.img} alt="img" /></div>
                     <button className='reserveButton'>Reserve</button>
                 </div>
-            // } else {
-            //     return ''
-            // }
+            } else {
+                return ''
+            }
         })
         return (
             <div className='displayedItemsApp'>

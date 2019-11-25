@@ -87,6 +87,19 @@ class CreateNewItem extends Component {
             return e.name
         })
 
+        const fire = <div><img className='fireRating' src="https://dejpknyizje2n.cloudfront.net/marketplace/products/modern-flame-fire-logo-sticker-1539108491.5454743.png" alt="fire" /></div>
+        let fires = []
+
+        // if (Number(this.props.rating) > 8) {
+        //     fires = [fire, fire, fire]
+        // } else if (Number(this.props.rating) > 5) {
+        //     fires = [fire, fire]
+        // } else if (Number(this.props.rating) > 4) {
+        //     fires = [fire]
+        // } else {
+        //     return fires
+        // }
+
         // let priceTag = this.props.itemPrice.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
         return (
             <div className='createNewFlex'>
@@ -119,7 +132,8 @@ class CreateNewItem extends Component {
                 <div className='createNewDisplay'>
                     <div>
                         <div className='displayedItems'>
-                            <h4 className='itemPriceDiv'>{!this.props.newItem ? '' : this.props.newItem}</h4>
+                            {fires}
+                            <h4 className='itemPriceDiv'> {!this.props.newItem ? '' : this.props.newItem}</h4>
                             <div className='holidayDiv'>{!this.props.itemPrice ? '$' : `$${this.props.itemPrice}`} | {this.props.holiday ? holidays[this.props.holiday - 1] : ''}</div>
                             <div className='imageContainer'>{this.props.itemImage ? <img className='displayedItemsImg' src={this.props.itemImage} /> : ''}</div>
                         </div>
