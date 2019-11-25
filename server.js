@@ -128,11 +128,31 @@ app.get('/api/people', (req, res, next) => {
         })
 })
 
+const getUserName = (items, db) => {
+    const promises = items.map((e) => {
+        if (e.reserved_by_user_id) {
+            return db.people.findOne({ id: e.reserved_by_user_id })
+                .then((user) => {
+                    e.user_name = `${user.first_name} ${user.last_name}`
+                    return e
+                })
+        }
+        else {
+            e.user_name = ''
+            return e
+        }
+    })
+    return Promise.all(promises)
+}
+
 //items of one user
 app.get(`/api/displayItems/:id`, (req, res, next) => {
     const db = app.get('db')
-    const { id } = req.params
+    const id = Number(req.params.id) > 0 ? req.params.id : req.session.user.id
     db.items.find({ creator_id: id })
+        .then((items) => {
+            return getUserName(items, db)
+        })
         .then((items) => {
             res.send({ items: items })
         })
@@ -162,7 +182,14 @@ app.put('/api/createNew', (req, res, next) => {
     const db = app.get('db')
     db.items.update({ id: req.body.item_id }, { reserved_by_user_id: req.session.user.id })
         .then((items) => {
-            res.send(items)
+            // return db.items.find()
+            return db.items.find({ creator_id: req.session.user.id })
+        })
+        .then((items) => {
+            return getUserName(items, db)
+        })
+        .then((items) => {
+            res.send({ items: items })
         })
         .catch((err) => {
             res.send({ success: false, err })

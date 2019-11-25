@@ -13,19 +13,19 @@
 }
 
 .displayedItemsApp {
-    margin: auto;
+    /* margin: auto; */
     padding: 10px;
     max-width: 950px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .displayedItems {
     /* margin: auto; */
     text-align: center;
     padding: 10px;
-    min-width: 160px;
+    width: 160px;
     min-height: 150px;
     margin-left: 30px;
 }
