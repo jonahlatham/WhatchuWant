@@ -18,7 +18,7 @@ class Head extends Component {
                     alert('something blew up')
                 }
             })
-    }
+    } 
     render() {
         return (
             <div className='linkDiv'>
