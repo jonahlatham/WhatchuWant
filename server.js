@@ -176,6 +176,19 @@ app.post('/api/createNew', (req, res, next) => {
         })
 })
 
+//delete item
+
+app.delete('/api/displayItems', (req, res, next) => {
+    const db = app.get('db')
+    db.items.destroy({ id: req.body.item_id })
+        .then(() => {
+            res.send({ success: true })
+        })
+        .catch((err) => {
+            res.send({ success: false, err })
+        })
+})
+
 //reserve item
 
 app.put('/api/createNew', (req, res, next) => {

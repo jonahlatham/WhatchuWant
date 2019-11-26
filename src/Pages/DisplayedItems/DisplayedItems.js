@@ -25,6 +25,18 @@ class DisplayedItems extends Component {
             })
     }
 
+    handleDelete = (id) => {
+        let body={
+            item_id: id
+        }
+        axios.get('/api/displayItems')
+            .then((response)=>{
+                this.setState({
+                    items: response.data.items
+                })
+            })
+    }
+
     // handleReserve = (id) => {
     //     let body = {
     //         item_id: id
@@ -63,6 +75,7 @@ class DisplayedItems extends Component {
                 <div className='holidayDiv'>${e.price} | {holidays[e.holiday_id - 1]}</div>
                 <div className='imageContainer'><img className='displayedItemsImg' src={e.img} alt="img" /></div>
                 {e.reserved_by_user_id ? `This is reserved by ${e.user_name}` : ''}
+                <button className='reserveButton' onClick={()=>{this.handleDelete(e.id)}}>Delete Item</button>
             </div >
         })
         return (

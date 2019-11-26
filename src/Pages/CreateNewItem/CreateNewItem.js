@@ -78,7 +78,6 @@ class CreateNewItem extends Component {
         window.location.reload()
     }
     render() {
-        console.log(this.props.item)
         const loopedHolidays = this.state.holidays.map((e) => {
             return <option className='createNewOptions' key={e.id} value={e.id}>{e.name}</option>
         })

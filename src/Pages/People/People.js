@@ -13,12 +13,12 @@ export default class People extends Component {
                 this.setState({
                     people: response.data.people
                 })
-                console.log(this.state.people)
             })
     }
 
     render() {
         const peeps = this.state.people.map((e,i)=>{
+            // if(e.id!==this.session.user.id)
            return <Link key={e.id} to={`/peopleItems/${e.id}`} >
                     < div key={e.id}>{e.first_name} {e.last_name}</div>
             </Link >

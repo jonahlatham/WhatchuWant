@@ -26,7 +26,6 @@ export default class PeopleItems extends Component {
                         this.setState({
                             people: response.data.people
                         })
-                        console.log(this.state.people)
                     })
             })
     }
@@ -58,14 +57,12 @@ export default class PeopleItems extends Component {
             }
 
     render() {
-        console.log(this.props.match.params.id)
         let holidays = this.state.holidays.map((e) => {
             return e.name
         })
 
         const names = this.state.people.map((e) => {
             if (Number(this.props.match.params.id) ===e.id){
-                console.log(e.first_name)
                 return `${e.first_name} ${e.last_name}`
             } else {
                 return ''
