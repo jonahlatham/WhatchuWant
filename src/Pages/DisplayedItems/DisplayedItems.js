@@ -26,11 +26,8 @@ class DisplayedItems extends Component {
     }
 
     handleDelete = (id) => {
-        let body={
-            item_id: id
-        }
-        axios.get('/api/displayItems')
-            .then((response)=>{
+        axios.delete(`/api/displayItems/${id}`)
+            .then((response) => {
                 this.setState({
                     items: response.data.items
                 })
@@ -66,7 +63,6 @@ class DisplayedItems extends Component {
             } else if (e.rating > 4) {
                 fires = [fire]
             }
-            // debugger
             return <div className='displayedItems' key={e.id} style={{ opacity: `${e.reserved_by_user_id ? '.5' : '1'}` }}>
                 <div className='itemPriceDiv'>
                     <h4 className='eNameDiv'> <div className='fires'>{fires}</div>  <div className='nameDiv'>{e.name}</div></h4>
@@ -75,7 +71,7 @@ class DisplayedItems extends Component {
                 <div className='holidayDiv'>${e.price} | {holidays[e.holiday_id - 1]}</div>
                 <div className='imageContainer'><img className='displayedItemsImg' src={e.img} alt="img" /></div>
                 {e.reserved_by_user_id ? `This is reserved by ${e.user_name}` : ''}
-                <button className='reserveButton' onClick={()=>{this.handleDelete(e.id)}}>Delete Item</button>
+                <button className='reserveButton' onClick={() => { this.handleDelete(e.id) }}>Delete Item</button>
             </div >
         })
         return (

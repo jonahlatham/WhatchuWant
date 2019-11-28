@@ -178,11 +178,14 @@ app.post('/api/createNew', (req, res, next) => {
 
 //delete item
 
-app.delete('/api/displayItems', (req, res, next) => {
+app.delete('/api/displayItems/:id', (req, res, next) => {
     const db = app.get('db')
-    db.items.destroy({ id: req.body.item_id })
-        .then(() => {
-            res.send({ success: true })
+    db.items.destroy({ id: req.params.id })
+        .then((response) => {
+            return db.items.find()
+                .then((response) => {
+                    res.send({ success: true, items: response })
+                })
         })
         .catch((err) => {
             res.send({ success: false, err })
