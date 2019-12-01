@@ -20,7 +20,7 @@ class Home extends Component {
                     and then you run and it is there and here and everything <br/></p>
                 </div>
                 <br/><br/><br/><br/>
-                <br/><br/><br/><br/>
+                <br/><br/><br/><br/> 
                 
                 <img className='shurikenImg' src="https://i-love-png.com/images/tribal-eye-png-2.png" alt="" />
                 <br/>
