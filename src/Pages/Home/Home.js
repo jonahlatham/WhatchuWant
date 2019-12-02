@@ -18,7 +18,7 @@ class Home extends Component {
                     More random crap running through this page to do stuff <br/>
                     and then you run and it is there and here and everything <br/>
                     and then you run and it is there and here and everything <br/></p>
-                </div>
+                </div> 
                 <br/><br/><br/><br/>
                 <br/><br/><br/><br/>
                 
