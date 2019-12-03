@@ -51,7 +51,6 @@ class Login extends Component {
                 <button onClick={this.handleLogin} className='loginButton'><strong>Log In</strong></button>
                 <Link className='loginLink' to='/Register'><small>Register</small></Link>
 
-                password7-15
             </div>
         )
     }

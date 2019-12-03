@@ -1,92 +1,12 @@
 .homeApp {
     position: relative;
-    /* text-align: center; */
+    text-align: center;
     width: 800px;
 }
 
+.homeText {}
 
-/* //////////////////////////////////////////////////////////////// */
-
-
-/* shuriken slides */
-
-.shurikenImg {
-    width: 200px;
-    /* animation: mymoveleft 1.5s infinite; */
-    animation: mymoveleft 2s normal forwards;
-    position: relative;
-}
-
-.shurikenImg2 {
-    position: absolute;
-    width: 200px;
-    /* animation: mymoveright 2s infinite; */
-    animation: mymoveright 2s normal forwards;
-}
-
-@keyframes mymoveright {
-    0% {
-        right: 0px;
-        transform: rotate(0deg);
-        opacity: 1;
-    }
-    85% {
-        right: 800px;
-        transform: rotate(-375deg);
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-@keyframes mymoveleft {
-    0% {
-        left: 0px;
-        transform: rotate(0deg);
-        opacity: 1;
-    }
-    85% {
-        left: 800px;
-        transform: rotate(375deg);
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
-
-/* //////////////////////////////////////////////////////////////// */
-
-
-/* hometext */
-
-.hometext {
-    position: absolute;
-    top: 0px;
-    margin-left: 30%;
-    animation: txt 2s normal forwards;
-}
-
-@keyframes txt {
-    0% {
-        opacity: 0;
-    }
-    80% {
-        opacity: .2;
-    }
-    85% {
-        opacity: .3;
-    }
-    90% {
-        opacity: .4;
-    }
-    94% {
-        opacity: .5;
-    }
-    97% {
-        opacity: .7;
-    }
-    100% {
-        opacity: 1;
-    }
+.img {
+    width: 100px;
+    height: 100px;
 }

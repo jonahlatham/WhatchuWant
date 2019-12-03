@@ -7,24 +7,17 @@ class Home extends Component {
     render() {
         return (
             <div className='homeApp'>
-                {/* <img className='shurikenImg' src="https://www.pngrepo.com/download/200832/shuriken.png" alt=""/> */}
-                <img className='shurikenImg' src="https://i-love-png.com/images/tribal-eye-png-2.png" alt="" />
-                <br/>
-                <img className='shurikenImg2' src="https://i-love-png.com/images/tribal-eye-png-2.png" alt="" />
                 <div className='hometext'>
-                    <p>Random crap to fill the endless void that is here <br/>
-                    Random crap to fill the endless void that is here <br/>
-                    More random crap running through this page to do stuff <br/>
-                    More random crap running through this page to do stuff <br/>
-                    and then you run and it is there and here and everything <br/>
-                    and then you run and it is there and here and everything <br/></p>
-                </div> 
-                <br/><br/><br/><br/>
-                <br/><br/><br/><br/>
-                
-                <img className='shurikenImg' src="https://i-love-png.com/images/tribal-eye-png-2.png" alt="" />
-                <br/>
-                <img className='shurikenImg2' src="https://i-love-png.com/images/tribal-eye-png-2.png" alt="" />
+                    <p>Finding the right present for your family and friends 
+                    can sometimes seem impossible. With Whatchuwant you
+                    can now show everyone what you want and when you want 
+                    it.</p>
+                    <br/>
+                    <p>Go to create new to get started! <br/> add the name,
+                    price, image, the holiday you want it for, and rate how 
+                    much you want the item so your friends can find it later.
+                    </p><img className='img' src="./createNew.png" alt=""/>
+                </div>
             </div>
         )
     }
