@@ -16,7 +16,10 @@ class Home extends Component {
                     <p>Go to create new to get started! <br/> add the name,
                     price, image, the holiday you want it for, and rate how 
                     much you want the item so your friends can find it later.
-                    </p><img className='img' src="./createNew.png" alt=""/>
+                    </p><img className='img' src="./createNew.png" alt="img"/>
+                    <br/>
+                    <p>Go to displayed items to view and manage your wish list.
+                        </p> <img src="./displayedItem.png" alt="img"/>
                 </div>
             </div>
         )
