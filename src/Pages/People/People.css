@@ -1,3 +1,24 @@
 .peopleApp {
     text-align: center;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.linkPeep {
+    text-decoration: none;
+}
+
+.friends {
+    width: 50px;
+    height: 50px;
+    border-style: solid;
+    border-radius: 3px;
+    color: black;
+    margin-left: 25px;
+    padding: 25px;
+}
+
+.friends:hover {
+    background: #dfe2e4;
+    border-color: #0000006b;
 }

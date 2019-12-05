@@ -1,12 +1,40 @@
 .homeApp {
     position: relative;
     text-align: center;
-    width: 800px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
 }
 
 .homeText {}
 
-.img {
-    width: 100px;
-    height: 100px;
+.diplayer {
+    display: flex;
+}
+
+.homeImg {
+    width: 250px;
+    height: 200px;
+    margin-left: 50px;
+}
+
+.createNewDv {
+    text-align: left;
+    width: 300px;
+    margin-left: 30px;
+    transform: rotate(-15deg);
+}
+
+.friendsDv {
+    text-align: left;
+    width: 300px;
+    margin-left: 30px;
+    transform: rotate(-15deg);
+}
+
+.dispDv {
+    text-align: left;
+    width: 300px;
+    margin-left: 30px;
+    transform: rotate(15deg);
 }

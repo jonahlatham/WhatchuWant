@@ -19,8 +19,8 @@ export default class People extends Component {
     render() {
         const peeps = this.state.people.map((e,i)=>{
             // if(e.id!==this.session.user.id)
-           return <Link key={e.id} to={`/peopleItems/${e.id}`} >
-                    < div key={e.id}>{e.first_name} {e.last_name}</div>
+           return <Link className='linkPeep' key={e.id} to={`/peopleItems/${e.id}`} >
+                    < div className='friends' key={e.id}>{e.first_name} <br/> {e.last_name}</div>
             </Link >
         })
         return (
