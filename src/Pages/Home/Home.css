@@ -6,7 +6,9 @@
     flex-direction: column;
 }
 
-.homeText {}
+.homeText {
+    margin: auto;
+}
 
 .diplayer {
     display: flex;
@@ -15,7 +17,7 @@
 .homeImg {
     width: 250px;
     height: 200px;
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 .createNewDv {

@@ -20,7 +20,8 @@ class Home extends Component {
                         <p class='createNewDv'>Go to create new to get started! Add the name,
                         price, image, the holiday you want it for, and rate how
                         much you want the item so your friends can find it later.
-                    </p><img className='homeImg' src={cretCrap} alt="img" />
+                        </p>
+                        <img className='homeImg' src={cretCrap} alt="img" />
                     </div>
                     <br />
                     <div className='diplayer' >
