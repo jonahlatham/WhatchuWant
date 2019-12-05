@@ -8,16 +8,17 @@
 
 .homeText {
     margin: auto;
+    max-width: 800px;
 }
 
 .displayer1 {
     display: flex;
-    margin-left: -5px;
+    justify-content: flex-start;
 }
 
 .displayer2 {
     display: flex;
-    margin-left: 350px;
+    justify-content: flex-end;
 }
 
 .homeImg1 {
@@ -32,18 +33,21 @@
 
 .createNewDv {
     text-align: left;
-    width: 300px;
-    /* margin-left: 30px; */
+    width: 200px;
+    margin-top: 25px;
 }
 
 .friendsDv {
     text-align: left;
-    width: 300px;
-    /* margin-left: 30px; */
+    width: 200px;
+    margin-top: 5px;
+    margin-right: 40px;
 }
 
 .dispDv {
     text-align: left;
-    width: 300px;
+    width: 200px;
+    margin-top: 5px;
+    margin-left: 40px;
     /* margin-left: 30px; */
 }
