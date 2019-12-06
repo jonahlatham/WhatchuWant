@@ -19,6 +19,6 @@
 }
 
 .friends:hover {
-    background: #dfe2e4;
-    border-color: #0000006b;
+    background: #f1f2f3;
+    font-weight: 900;
 }
