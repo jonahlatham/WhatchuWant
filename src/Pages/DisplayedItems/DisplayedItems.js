@@ -28,7 +28,7 @@ class DisplayedItems extends Component {
     handleDelete = (id) => {
         axios.delete(`/api/displayItems/${id}`)
             .then((response) => {
-                this.setState({
+                this.setState({ 
                     items: response.data.items
                 })
             })
