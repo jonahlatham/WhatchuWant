@@ -21,7 +21,7 @@ class DisplayedItems extends Component {
             .then((response) => {
                 this.setState({
                     holidays: response.data.holidays
-                })
+                }) 
             })
     }
 
