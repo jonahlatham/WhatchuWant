@@ -67,7 +67,7 @@ class Register extends Component {
                     }
                 }} autoComplete={false} style={{ borderColor: /^[a-zA-Z]+$/.test(this.state.first_name) ? 'green' : 'red' }} className='registerInputs' name='first_name' value={this.state.first_name} onChange={this.handleChange} type="text" />
                 <p>Last Name</p>
-                <input onKeyPress={event => {
+                <input onKeyPress={event => { 
                     if (event.key === 'Enter') {
                         this.handleRegister()
                     }
