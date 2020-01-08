@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 class DisplayedItems extends Component {
 
-    state = {
+    state = { 
         items: [],
         holidays: [],
     }
