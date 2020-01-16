@@ -105,7 +105,7 @@ class CreateNewItem extends Component {
                 <div className='createNewApp'>
                     <input className='createNewInputs' placeholder='Item' onChange={this.handleNewItem} type="text" value={this.props.newItem} />
                     <input className='createNewInputs' placeholder='Image URL' onChange={this.handleImage} type="text" value={this.props.itemImage} />
-                    <input className='createNewInputs' placeholder='Price' onChange={this.handleItemPrice} type="text" value={this.props.itemPrice} />
+                    <input className='createNewInputs' placeholder='Price' onChange={this.handleItemPrice} type="number" value={this.props.itemPrice} />
                     <select className='createNewSelect' onChange={this.handleHoliday}>
                         <option className='createNewOptions' value="">Select Holiday</option>
                         {loopedHolidays}

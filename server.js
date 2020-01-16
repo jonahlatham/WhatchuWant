@@ -4,11 +4,12 @@ const bodyParser = require('body-parser')
 const massive = require('massive')
 const session = require('express-session')
 const bcrypt = require('bcrypt')
+const path = require('path');
 require('dotenv').config()
 
 const app = express()
 
-// app.use(express.static(path.join(__dirname, '/build')));
+app.use(express.static(path.join(__dirname, '/build')));
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -265,6 +266,12 @@ app.get('/api/displayItems', (req, res, next) => {
 })
 
 //////////////////////////////////////////////////////////////////
+
+app.get('/*', (req, res) => {
+    res.sendFile('index.html', {
+        root: path.join(__dirname, "build")
+    })
+});
 
 const port = process.env.PORT || 8090
 app.listen(port, () => {
