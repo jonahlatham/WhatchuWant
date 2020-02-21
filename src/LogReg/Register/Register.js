@@ -67,7 +67,7 @@ class Register extends Component {
                     }
                 }} autoComplete={false} style={{ borderColor: /^[a-zA-Z]+$/.test(this.state.first_name) ? 'green' : 'red' }} className='registerInputs' name='first_name' value={this.state.first_name} onChange={this.handleChange} type="text" />
                 <p>Last Name</p>
-                <input onKeyPress={event => { 
+                <input onKeyPress={event => {
                     if (event.key === 'Enter') {
                         this.handleRegister()
                     }
@@ -91,8 +91,8 @@ class Register extends Component {
                 <input onKeyPress={event => {
                     if (event.key === 'Enter') {
                         this.handleRegister()
-                    } 
-                }} autoComplete={false} style={{ borderColor: this.state.password === this.state.doubleCheck ? 'green' : 'red' }} className='registerInputs' name='doubleCheck' value={this.state.doubleCheck} onChange={this.handleChange} type="password" />
+                    }
+                }} autoComplete={false} style={{ borderColor: this.state.password !== this.state.doubleCheck ? 'red' : this.state.password === '' ? 'red' : 'green' }} className='registerInputs' name='doubleCheck' value={this.state.doubleCheck} onChange={this.handleChange} type="password" />
                 <button onClick={this.handleRegister} className='registerButton'><strong>Register</strong></button>
                 <Link style={{ margin: 'auto' }} className='loginLink' to='/'><small className='passText'>Already a member? Log in here.</small></Link>
             </div>
